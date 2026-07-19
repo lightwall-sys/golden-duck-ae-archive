@@ -1,0 +1,62 @@
+name: Update Authors Electric archive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 04 * * *"
+      timezone: "Europe/London"
+
+concurrency:
+  group: authors-electric-archive
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run safety tests
+        run: npm test
+
+      - name: Update archive and preservation copies
+        run: npm run update
+
+      - name: Commit verified archive changes
+        run: |
+          git config user.name "golden-duck-archive-bot"
+          git config user.email "golden-duck-archive-bot@users.noreply.github.com"
+          git add public snapshots automation-heartbeat.txt
+          if git diff --cached --quiet; then
+            echo "No repository changes to commit."
+          else
+            git commit -m "Update Authors Electric archive [skip ci]"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
