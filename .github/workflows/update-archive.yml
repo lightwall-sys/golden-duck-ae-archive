@@ -29,7 +29,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Run safety tests
         run: npm test
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "golden-duck-archive-bot"
           git config user.email "golden-duck-archive-bot@users.noreply.github.com"
-          git add public snapshots automation-heartbeat.txt
+          git add public snapshots backup automation-heartbeat.txt
           if git diff --cached --quiet; then
             echo "No repository changes to commit."
           else
