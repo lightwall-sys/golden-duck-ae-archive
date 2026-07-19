@@ -1,7 +1,9 @@
 {
   "bloggerBaseUrl": "https://authorselectric.blogspot.com",
   "bloggerLabel": "Julia Jones",
-  "authorNames": ["julia jones"],
+  "authorNames": [
+    "julia jones"
+  ],
   "legacyArchiveUrl": "https://golden-duck.co.uk/authors-electric",
   "goldenDuckArchiveUrl": "https://golden-duck.co.uk/julia-ae-archive",
   "pagesBaseUrl": "https://lightwall-sys.github.io/golden-duck-ae-archive",
@@ -13,5 +15,7 @@
   "requestRetries": 2,
   "imageMaxBytes": 25000000,
   "imageConcurrency": 4,
-  "heartbeatDays": 30
+  "heartbeatDays": 30,
+  "pageScrapeConcurrency": 3,
+  "requirePreservedCopiesForAvailablePosts": true
 }

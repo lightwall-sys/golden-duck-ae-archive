@@ -77,3 +77,46 @@ test("mergeRecords is append-preserving and prefers richer Blogger data", () => 
   assert.equal(merged[0].image, "https://example.com/photo.jpg");
   assert.equal(merged[0].id, "123");
 });
+
+import {
+  classifyDuplicatePosts,
+  cleanReadableArticleHtml,
+  extractPostBodyFromPage
+} from "../scripts/update-archive.mjs";
+
+test("extractPostBodyFromPage recovers a legacy Blogger post body", () => {
+  const html = `<!doctype html><html><body><div class="sidebar">Ignore me</div><div class='post-body entry-content float-container' id='post-body-123'><p>First paragraph of the article.</p><div><p>Second paragraph with enough text to identify the actual post body reliably.</p></div></div></body></html>`;
+  const body = extractPostBodyFromPage(html);
+  assert.match(body, /First paragraph/);
+  assert.match(body, /Second paragraph/);
+  assert.doesNotMatch(body, /Ignore me/);
+});
+
+test("classifyDuplicatePosts preserves both records but hides the non-canonical duplicate", () => {
+  const content = `<p>${"The same preserved article wording appears here. ".repeat(20)}</p>`;
+  const records = classifyDuplicatePosts([
+    {
+      id: "canonical", title: "Barnacle Goose, her story", published: "2026-07-09", year: 2026, month: 7, day: 9,
+      url: "https://authorselectric.blogspot.com/2026/07/barnacle-goose-her-story.html", contentHtml: content,
+      sources: ["golden-duck-legacy", "blogger-label"]
+    },
+    {
+      id: "duplicate", title: "BARNACLE GOOSE How an English yacht became a Scottish workboat", published: "2026-07-10", year: 2026, month: 7, day: 10,
+      url: "https://authorselectric.blogspot.com/2026/07/barnacle-goose-how-english-yacht.html", contentHtml: content,
+      sources: ["blogger-label"]
+    }
+  ]);
+  assert.equal(records.length, 2);
+  assert.equal(records.find((post) => post.id === "canonical").display, true);
+  const duplicate = records.find((post) => post.id === "duplicate");
+  assert.equal(duplicate.display, false);
+  assert.equal(duplicate.status, "duplicate");
+  assert.equal(duplicate.duplicateOf, "canonical");
+});
+
+
+test("cleanReadableArticleHtml removes Blogger colours and inline presentation while keeping structure", () => {
+  const cleaned = cleanReadableArticleHtml('<p style="background-color:white;color:black" class="separator"><font color="white"><strong>Readable text</strong></font></p>');
+  assert.doesNotMatch(cleaned, /style=|class=|<\/?font/i);
+  assert.match(cleaned, /<strong>Readable text<\/strong>/);
+});

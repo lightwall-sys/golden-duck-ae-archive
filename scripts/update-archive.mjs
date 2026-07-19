@@ -11,6 +11,10 @@ const DATA_DIR = path.join(PUBLIC_DIR, "data");
 const POSTS_DIR = path.join(PUBLIC_DIR, "posts");
 const MEDIA_DIR = path.join(PUBLIC_DIR, "media");
 const SNAPSHOTS_DIR = path.join(ROOT, "snapshots");
+const BACKUP_DIR = path.join(ROOT, "backup");
+const RAW_POSTS_DIR = path.join(BACKUP_DIR, "raw-posts");
+const CAPTURED_PATH = path.join(DATA_DIR, "archive-captured.json");
+const DUPLICATE_REPORT_PATH = path.join(DATA_DIR, "duplicate-report.json");
 const CONFIG_PATH = path.join(ROOT, "config", "archive.config.json");
 const ARCHIVE_PATH = path.join(DATA_DIR, "archive-latest.json");
 const ARCHIVE_JS_PATH = path.join(DATA_DIR, "archive-latest.js");
@@ -209,6 +213,86 @@ function excerptFromHtml(html, maximum = 330) {
   if (!text) return "";
   if (text.length <= maximum) return text;
   return `${text.slice(0, maximum + 1).replace(/\s+\S*$/, "").trim()}…`;
+}
+
+function balancedElementInnerHtml(source, startMatch) {
+  if (!startMatch) return "";
+  const tagName = String(startMatch[1] || "").toLowerCase();
+  if (!tagName) return "";
+  const start = startMatch.index + startMatch[0].length;
+  const tokenPattern = new RegExp(`<\/?${tagName}\\b[^>]*>`, "gi");
+  tokenPattern.lastIndex = start;
+  let depth = 1;
+  let token;
+  while ((token = tokenPattern.exec(source))) {
+    if (/^<\//.test(token[0])) depth -= 1;
+    else if (!/\/\s*>$/.test(token[0])) depth += 1;
+    if (depth === 0) return source.slice(start, token.index);
+  }
+  return "";
+}
+
+export function extractPostBodyFromPage(pageHtml) {
+  const source = String(pageHtml ?? "");
+  const patterns = [
+    /<(div|article|section)\b[^>]*class\s*=\s*(?:"[^"]*\bpost-body\b[^"]*"|'[^']*\bpost-body\b[^']*')[^>]*>/gi,
+    /<(div|article|section)\b[^>]*itemprop\s*=\s*(?:"articleBody"|'articleBody')[^>]*>/gi,
+    /<(div|article|section)\b[^>]*class\s*=\s*(?:"[^"]*\bentry-content\b[^"]*"|'[^']*\bentry-content\b[^']*')[^>]*>/gi
+  ];
+  const candidates = [];
+  for (const pattern of patterns) {
+    let match;
+    while ((match = pattern.exec(source))) {
+      const html = balancedElementInnerHtml(source, match);
+      const textLength = stripTags(html).length;
+      if (html && textLength >= 80) candidates.push({ html, textLength });
+    }
+    if (candidates.length) break;
+  }
+  candidates.sort((a, b) => b.textLength - a.textLength);
+  return candidates[0]?.html || "";
+}
+
+export function cleanReadableArticleHtml(html) {
+  return String(html ?? "")
+    .replace(/<(script|style|noscript|iframe|object|embed|form)\b[\s\S]*?<\/\1>/gi, "")
+    .replace(/<(input|button)\b[^>]*>/gi, "")
+    .replace(/\son[a-z]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/\s(?:class|id|color|bgcolor|face|size)\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/<\/?font\b[^>]*>/gi, "")
+    .replace(/\s(?:href|src)\s*=\s*(["'])\s*javascript:[\s\S]*?\1/gi, "");
+}
+
+function contentText(value) {
+  return key(stripTags(String(value ?? "")))
+    .replace(/\b(?:share|comments?|posted by|labels?|get link)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function contentFingerprint(record) {
+  const text = contentText(record?.contentHtml || "");
+  if (text.length < 240) return "";
+  return createHash("sha256").update(text).digest("hex");
+}
+
+function tokenSet(value) {
+  return new Set(contentText(value).split(" ").filter((token) => token.length > 2));
+}
+
+function contentSimilarity(a, b) {
+  const aText = contentText(a);
+  const bText = contentText(b);
+  if (Math.min(aText.length, bText.length) < 300) return 0;
+  const ratio = Math.min(aText.length, bText.length) / Math.max(aText.length, bText.length);
+  if (ratio < 0.88) return 0;
+  const left = tokenSet(aText);
+  const right = tokenSet(bText);
+  if (!left.size || !right.size) return 0;
+  let intersection = 0;
+  for (const token of left) if (right.has(token)) intersection += 1;
+  return intersection / new Set([...left, ...right]).size;
 }
 
 function alternateLink(entry) {
@@ -444,7 +528,8 @@ async function ensureDirectories() {
     fs.mkdir(DATA_DIR, { recursive: true }),
     fs.mkdir(POSTS_DIR, { recursive: true }),
     fs.mkdir(MEDIA_DIR, { recursive: true }),
-    fs.mkdir(SNAPSHOTS_DIR, { recursive: true })
+    fs.mkdir(SNAPSHOTS_DIR, { recursive: true }),
+    fs.mkdir(RAW_POSTS_DIR, { recursive: true })
   ]);
 }
 
@@ -547,18 +632,36 @@ function authorMatches(post, names) {
 
 
 async function enrichMissingPosts(posts, config, warnings) {
-  const candidates = posts.filter((post) => post.url && !post.contentHtml && !post.archiveUrl);
+  const candidates = posts.filter((post) => post.url && !post.contentHtml && post.status !== "original-unavailable");
   if (!candidates.length) return posts;
-  const enriched = await mapWithConcurrency(candidates, 3, async (post) => {
+  const enriched = await mapWithConcurrency(candidates, Number(config.pageScrapeConcurrency || 3), async (post) => {
     try {
       const url = `${config.bloggerBaseUrl}/feeds/posts/default?alt=json&max-results=12&orderby=published&q=${encodeURIComponent(post.originalTitle || post.title)}`;
       const payload = await fetchJson(url, config, `targeted lookup for ${post.title}`);
       const matches = feedEntries(payload).map((entry) => normaliseBloggerEntry(entry, "blogger-targeted-lookup")).filter(Boolean);
-      return matches.find((item) => recordIdentity(item) === recordIdentity(post))
-        || matches.find((item) => item.year === post.year && item.month === post.month && key(item.title) === key(post.title))
-        || post;
+      const matched = matches.find((item) => recordIdentity(item) === recordIdentity(post))
+        || matches.find((item) => item.year === post.year && item.month === post.month && key(item.title) === key(post.title));
+      if (matched?.contentHtml) return matched;
     } catch (error) {
-      warnings.push(`Could not enrich “${post.title}”: ${error.message}`);
+      warnings.push(`Feed lookup did not recover “${post.title}”: ${error.message}`);
+    }
+
+    try {
+      const pageHtml = await fetchText(post.url, config, `original page for ${post.title}`);
+      const contentHtml = extractPostBodyFromPage(pageHtml);
+      if (!contentHtml) throw new Error("No article body could be identified in the page HTML");
+      const image = firstImageFromHtml(contentHtml);
+      return {
+        ...post,
+        contentHtml,
+        excerpt: post.excerpt || excerptFromHtml(contentHtml),
+        image: post.image || image.url,
+        originalImage: post.originalImage || image.url,
+        imageAlt: post.imageAlt || image.alt || post.title,
+        sources: Array.from(new Set([...(post.sources || []), "blogger-page-scrape"]))
+      };
+    } catch (error) {
+      warnings.push(`Could not preserve “${post.title}” from its original page: ${error.message}`);
       return post;
     }
   });
@@ -571,12 +674,59 @@ async function enrichMissingPosts(posts, config, warnings) {
   });
 }
 
-function sanitizeArticleHtml(html) {
-  return String(html ?? "")
-    .replace(/<(script|style|noscript|iframe|object|embed|form)\b[\s\S]*?<\/\1>/gi, "")
-    .replace(/<(input|button)\b[^>]*>/gi, "")
-    .replace(/\son[a-z]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
-    .replace(/\s(?:href|src)\s*=\s*(["'])\s*javascript:[\s\S]*?\1/gi, "");
+export function classifyDuplicatePosts(posts) {
+  const records = posts.map((post) => ({ ...post, display: post.display !== false, duplicateOf: post.duplicateOf || "", duplicateReason: post.duplicateReason || "" }));
+  const groups = [];
+  const used = new Set();
+  const fingerprints = new Map();
+  records.forEach((post, index) => {
+    const fingerprint = contentFingerprint(post);
+    if (!fingerprint) return;
+    const existing = fingerprints.get(fingerprint);
+    if (existing === undefined) fingerprints.set(fingerprint, index);
+    else groups.push([existing, index]);
+  });
+  for (let i = 0; i < records.length; i += 1) {
+    for (let j = i + 1; j < records.length; j += 1) {
+      if (groups.some((pair) => pair.includes(i) && pair.includes(j))) continue;
+      const a = records[i];
+      const b = records[j];
+      const dayDistance = Math.abs(new Date(`${a.published}T12:00:00Z`) - new Date(`${b.published}T12:00:00Z`)) / 86400000;
+      if (dayDistance > 45) continue;
+      if (contentSimilarity(a.contentHtml, b.contentHtml) >= 0.94) groups.push([i, j]);
+    }
+  }
+
+  function canonicalScore(post) {
+    let score = 0;
+    if ((post.sources || []).includes("golden-duck-legacy")) score += 100;
+    if (Number(post.day) === 9) score += 40;
+    if (post.title && post.title !== post.title.toUpperCase()) score += 15;
+    if (post.archiveUrl) score += 4;
+    return score;
+  }
+
+  for (const pair of groups) {
+    const members = pair.filter((index) => !used.has(index));
+    if (members.length < 2) continue;
+    const ordered = members.slice().sort((left, right) => {
+      const score = canonicalScore(records[right]) - canonicalScore(records[left]);
+      return score || String(records[left].published).localeCompare(String(records[right].published));
+    });
+    const canonicalIndex = ordered[0];
+    const canonical = records[canonicalIndex];
+    for (const index of ordered.slice(1)) {
+      records[index] = {
+        ...records[index],
+        status: "duplicate",
+        display: false,
+        duplicateOf: canonical.id || canonical.url,
+        duplicateReason: "The article body is identical or near-identical to the canonical record."
+      };
+      used.add(index);
+    }
+  }
+  return records;
 }
 
 function extensionForContentType(contentType, url) {
@@ -640,7 +790,6 @@ async function findExistingMedia(prefix) {
 }
 
 async function mirrorArticle(post, config, warnings) {
-  if (!post.contentHtml || !post.url) return post;
   const parts = dateParts(post.published);
   if (!parts) return post;
   const slug = slugFromUrl(post.url, `post-${post.id || parts.iso}`);
@@ -657,7 +806,26 @@ async function mirrorArticle(post, config, warnings) {
   const mediaDirectory = path.join(MEDIA_DIR, postKey);
   await fs.mkdir(mediaDirectory, { recursive: true });
 
-  let articleHtml = sanitizeArticleHtml(post.contentHtml);
+  const hasFullContent = Boolean(post.contentHtml);
+  if (hasFullContent) {
+    await fs.writeFile(
+      path.join(RAW_POSTS_DIR, `${postKey}.json`),
+      `${JSON.stringify({
+        capturedAt: new Date().toISOString(),
+        id: post.id,
+        title: post.title,
+        published: post.published,
+        url: post.url,
+        originalUrl: post.originalUrl,
+        contentHtml: post.contentHtml
+      }, null, 2)}\n`,
+      "utf8"
+    );
+  }
+
+  let articleHtml = hasFullContent
+    ? cleanReadableArticleHtml(post.contentHtml)
+    : `<section class="preservation-notice"><h2>Article content not yet preserved</h2><p>This archive retains the post’s title, date and original address, but the article body could not be captured during this run.</p></section>`;
   const imageTags = articleHtml.match(/<img\b[^>]*>/gi) || [];
   const replacements = new Map();
   let firstLocalImage = "";
@@ -689,7 +857,11 @@ async function mirrorArticle(post, config, warnings) {
   }
 
   articleHtml = articleHtml.replace(/href\s*=\s*(["'])([^"']+)\1/gi, (full, quote, href) => {
-    const canonical = /authorselectric\.blogspot\./i.test(href) ? canonicalBlogspotUrl(href) : href;
+    let resolved = href;
+    try {
+      if (!/^(?:mailto:|tel:|#)/i.test(href)) resolved = new URL(href, post.url || config.bloggerBaseUrl).toString();
+    } catch {}
+    const canonical = /authorselectric\.blogspot\./i.test(resolved) ? canonicalBlogspotUrl(resolved) : resolved;
     return `href=${quote}${escapeHtml(canonical)}${quote}`;
   });
 
@@ -705,7 +877,8 @@ async function mirrorArticle(post, config, warnings) {
     post,
     articleHtml,
     archiveUrl,
-    goldenDuckArchiveUrl: config.goldenDuckArchiveUrl
+    goldenDuckArchiveUrl: config.goldenDuckArchiveUrl,
+    hasFullContent
   });
   await fs.writeFile(path.join(articleDirectory, "index.html"), document, "utf8");
 
@@ -714,11 +887,12 @@ async function mirrorArticle(post, config, warnings) {
     archiveUrl,
     image: localImageUrl || post.image,
     originalImage: post.originalImage || post.image,
+    preservationStatus: hasFullContent ? "full" : "metadata-only",
     mirroredAt: new Date().toISOString()
   };
 }
 
-function articleDocument({ post, articleHtml, goldenDuckArchiveUrl }) {
+function articleDocument({ post, articleHtml, goldenDuckArchiveUrl, hasFullContent }) {
   const published = dateParts(post.published);
   const dateLabel = published
     ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
@@ -737,17 +911,17 @@ function articleDocument({ post, articleHtml, goldenDuckArchiveUrl }) {
     header,main,footer{width:min(900px,calc(100% - 36px));margin:auto}header{padding:48px 0 30px;border-bottom:1px solid var(--rule)}
     .eyebrow{margin:0 0 12px;color:var(--gold);font:800 12px/1 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase}
     h1{margin:0;color:var(--paper);font-size:clamp(34px,6vw,62px);line-height:1.05;font-weight:400}.meta{margin:16px 0 0;color:#aaa;font:14px/1.5 Arial,sans-serif}
-    nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:24px}a{color:var(--gold)}main{padding:42px 0 64px}.post-body{overflow-wrap:anywhere}.post-body img{max-width:100%;height:auto;margin:24px auto}.post-body table{display:block;max-width:100%;overflow:auto}
-    blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:2px solid var(--gold)}footer{padding:26px 0 52px;border-top:1px solid var(--rule);color:#999;font:13px/1.6 Arial,sans-serif}
+    nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:24px}a{color:var(--gold)!important}main{padding:42px 0 64px}.post-body{overflow-wrap:anywhere}.post-body *{color:inherit!important;background-color:transparent!important;font-family:inherit!important}.post-body a{color:var(--gold)!important}.post-body img{max-width:100%;height:auto;margin:24px auto;background:transparent!important}.post-body table{display:block;max-width:100%;overflow:auto}.post-body mark{color:#151515!important;background:var(--gold)!important}
+    blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:2px solid var(--gold)}.preservation-notice{padding:24px;border:1px solid var(--rule);background:var(--panel)!important}.preservation-notice h2{margin-top:0;color:var(--paper)!important}footer{padding:26px 0 52px;border-top:1px solid var(--rule);color:#999;font:13px/1.6 Arial,sans-serif}
   </style>
 </head>
 <body>
   <header>
-    <p class="eyebrow">Preserved copy · Julia Jones at Authors Electric</p>
+    <p class="eyebrow">${hasFullContent ? "Preserved copy" : "Archive record"} · Julia Jones at Authors Electric</p>
     <h1>${escapeHtml(post.title)}</h1>
     <p class="meta">Originally published ${escapeHtml(dateLabel)}</p>
     <nav aria-label="Archive links">
-      <a href="${escapeHtml(post.url)}">Open the original at Authors Electric</a>
+      ${post.url ? `<a href="${escapeHtml(post.url)}">Open the original at Authors Electric</a>` : ""}
       <a href="${escapeHtml(goldenDuckArchiveUrl)}">Return to the Golden Duck archive</a>
     </nav>
   </header>
@@ -755,7 +929,7 @@ function articleDocument({ post, articleHtml, goldenDuckArchiveUrl }) {
     <article class="post-body">${articleHtml}</article>
   </main>
   <footer>
-    This preservation copy was generated automatically from the public Authors Electric feed. Copyright remains with Julia Jones and the respective owners of any included material.
+    ${hasFullContent ? "This preservation copy was generated automatically from the public Authors Electric material." : "This metadata record is retained because the original article body was unavailable to the automatic archive."} Copyright remains with Julia Jones and the respective owners of any included material.
   </footer>
 </body>
 </html>`;
@@ -793,12 +967,15 @@ function archiveChanged(previousPosts, nextPosts) {
     archiveUrl: post.archiveUrl,
     image: post.image,
     status: post.status,
-    note: post.note
+    note: post.note,
+    display: post.display,
+    duplicateOf: post.duplicateOf,
+    preservationStatus: post.preservationStatus
   })));
   return comparable(previousPosts) !== comparable(nextPosts);
 }
 
-function validateArchive(previousPosts, nextPosts, feedResult, minimumExpectedPosts = 0) {
+function validateArchive(previousPosts, nextPosts, feedResult, minimumExpectedPosts = 0, configRequireFullCopies = false) {
   const errors = [];
   const warnings = [];
   if (!nextPosts.length) errors.push("The generated archive contains no posts.");
@@ -807,7 +984,7 @@ function validateArchive(previousPosts, nextPosts, feedResult, minimumExpectedPo
     errors.push(`The first archive contains only ${nextPosts.length} posts; at least ${minimumExpected} were expected.`);
   }
   if (previousPosts.length && nextPosts.length < previousPosts.length) {
-    errors.push(`The archive would shrink from ${previousPosts.length} to ${nextPosts.length} posts.`);
+    errors.push(`The captured archive would shrink from ${previousPosts.length} to ${nextPosts.length} posts.`);
   }
   const identities = new Set();
   for (const post of nextPosts) {
@@ -819,6 +996,9 @@ function validateArchive(previousPosts, nextPosts, feedResult, minimumExpectedPo
   }
   if (!feedResult.complete) warnings.push("The Blogger label feed did not report a completely retrieved result. Existing records were preserved.");
   if (nextPosts.some((post) => !post.image)) warnings.push("Some posts have no recoverable image. Their archive records were retained.");
+  const missingCopies = nextPosts.filter((post) => post.status !== "original-unavailable" && post.url && post.preservationStatus !== "full");
+  if (missingCopies.length && configRequireFullCopies) errors.push(`${missingCopies.length} available posts still lack a full preserved copy: ${missingCopies.slice(0, 8).map((post) => post.title).join(", ")}`);
+  else if (missingCopies.length) warnings.push(`${missingCopies.length} available posts still lack a full preserved copy.`);
   if (nextPosts.some((post) => post.status === "original-unavailable")) warnings.push("At least one historical post was already unavailable before this archive was created.");
   return { errors, warnings };
 }
@@ -846,13 +1026,17 @@ async function maybeWriteHeartbeat(config, force = false) {
   }
 }
 
-function statusPayload({ state, generatedAt, previousCount, nextCount, newCount, warnings, sources }) {
+function statusPayload({ state, generatedAt, previousCount, nextCount, publicCount = nextCount, duplicateCount = 0, fullCopyCount = 0, metadataOnlyCount = 0, newCount, warnings, sources }) {
   return {
     schemaVersion: 1,
     state,
     checkedAt: generatedAt,
     previousPostCount: previousCount,
-    postCount: nextCount,
+    capturedPostCount: nextCount,
+    postCount: publicCount,
+    duplicateCount,
+    fullCopyCount,
+    metadataOnlyCount,
     newPostCount: newCount,
     warnings,
     sources
@@ -862,8 +1046,11 @@ function statusPayload({ state, generatedAt, previousCount, nextCount, newCount,
 async function main() {
   await ensureDirectories();
   const config = JSON.parse(await fs.readFile(CONFIG_PATH, "utf8"));
-  const existingPayload = await readJson(ARCHIVE_PATH, { posts: [] });
+  const existingPublicPayload = await readJson(ARCHIVE_PATH, { posts: [] });
+  const existingCapturedPayload = await readJson(CAPTURED_PATH, null);
+  const existingPayload = existingCapturedPayload || existingPublicPayload;
   const existingPosts = (existingPayload.posts || []).map((post) => ({ ...post, sources: [...(post.sources || []), "existing-archive"] }));
+  const existingPublicPosts = existingPublicPayload.posts || [];
   const generatedAt = new Date().toISOString();
   const sourceReport = {};
   const runtimeWarnings = [];
@@ -948,8 +1135,10 @@ async function main() {
     Number(config.imageConcurrency || 4),
     (post) => mirrorArticle(post, config, runtimeWarnings)
   );
-  const publicPosts = mirrored.map(publicPost);
-  const validation = validateArchive(existingPosts, publicPosts, labelResult, config.minimumExpectedPosts);
+  const capturedPosts = classifyDuplicatePosts(mirrored).map(publicPost);
+  const publicPosts = capturedPosts.filter((post) => post.display !== false);
+  const duplicatePosts = capturedPosts.filter((post) => post.display === false && post.status === "duplicate");
+  const validation = validateArchive(existingPosts, capturedPosts, labelResult, config.minimumExpectedPosts, config.requirePreservedCopiesForAvailablePosts);
   validation.warnings.push(...runtimeWarnings);
 
   if (validation.errors.length) {
@@ -958,8 +1147,12 @@ async function main() {
       state: "failed-validation",
       generatedAt,
       previousCount: existingPosts.length,
-      nextCount: publicPosts.length,
-      newCount: Math.max(0, publicPosts.length - existingPosts.length),
+      nextCount: capturedPosts.length,
+      publicCount: publicPosts.length,
+      duplicateCount: duplicatePosts.length,
+      fullCopyCount: capturedPosts.filter((post) => post.preservationStatus === "full").length,
+      metadataOnlyCount: capturedPosts.filter((post) => post.preservationStatus !== "full").length,
+      newCount: Math.max(0, capturedPosts.length - existingPosts.length),
       warnings: [...validation.errors, ...validation.warnings],
       sources: sourceReport
     });
@@ -967,12 +1160,16 @@ async function main() {
     throw new Error(`Archive validation failed: ${validation.errors.join(" | ")}`);
   }
 
-  const changed = archiveChanged(existingPosts, publicPosts);
+  const changed = archiveChanged(existingPublicPosts, publicPosts);
   const payload = {
     schemaVersion: 1,
     generatedAt,
     archiveState: "last-known-good",
     postCount: publicPosts.length,
+    capturedPostCount: capturedPosts.length,
+    duplicateCount: duplicatePosts.length,
+    fullCopyCount: capturedPosts.filter((post) => post.preservationStatus === "full").length,
+    metadataOnlyCount: capturedPosts.filter((post) => post.preservationStatus !== "full").length,
     newestPostDate: publicPosts[0]?.published || "",
     goldenDuckArchiveUrl: config.goldenDuckArchiveUrl,
     sourceBlogUrl: config.bloggerBaseUrl,
@@ -980,6 +1177,24 @@ async function main() {
     sources: sourceReport,
     posts: publicPosts
   };
+
+  const capturedPayload = {
+    ...payload,
+    postCount: capturedPosts.length,
+    publicPostCount: publicPosts.length,
+    posts: capturedPosts
+  };
+  const duplicateReport = {
+    schemaVersion: 1,
+    generatedAt,
+    duplicateCount: duplicatePosts.length,
+    duplicates: duplicatePosts.map((post) => ({
+      id: post.id, title: post.title, published: post.published, url: post.url, archiveUrl: post.archiveUrl,
+      duplicateOf: post.duplicateOf, reason: post.duplicateReason
+    }))
+  };
+  await fs.writeFile(CAPTURED_PATH, `${JSON.stringify(capturedPayload, null, 2)}\n`, "utf8");
+  await fs.writeFile(DUPLICATE_REPORT_PATH, `${JSON.stringify(duplicateReport, null, 2)}\n`, "utf8");
 
   if (changed || !existingPosts.length) {
     await fs.writeFile(ARCHIVE_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
@@ -994,15 +1209,19 @@ async function main() {
       state: changed ? "updated" : "healthy-no-change",
       generatedAt,
       previousCount: existingPosts.length,
-      nextCount: publicPosts.length,
-      newCount: Math.max(0, publicPosts.length - existingPosts.length),
+      nextCount: capturedPosts.length,
+      publicCount: publicPosts.length,
+      duplicateCount: duplicatePosts.length,
+      fullCopyCount: capturedPosts.filter((post) => post.preservationStatus === "full").length,
+      metadataOnlyCount: capturedPosts.filter((post) => post.preservationStatus !== "full").length,
+      newCount: Math.max(0, capturedPosts.length - existingPosts.length),
       warnings: validation.warnings,
       sources: sourceReport
     }), null, 2)}\n`,
     "utf8"
   );
   await maybeWriteHeartbeat(config, changed);
-  console.log(`Archive healthy: ${publicPosts.length} posts (${changed ? "updated" : "no archive changes"}).`);
+  console.log(`Archive healthy: ${publicPosts.length} public posts from ${capturedPosts.length} captured records; ${duplicatePosts.length} duplicate(s) suppressed (${changed ? "updated" : "no public archive changes"}).`);
 }
 
 const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
