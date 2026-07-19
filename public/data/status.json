@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "state": "not-initialised",
+  "checkedAt": "",
+  "previousPostCount": 0,
+  "postCount": 0,
+  "newPostCount": 0,
+  "warnings": ["The first automatic archive run has not completed yet."],
+  "sources": {}
+}
