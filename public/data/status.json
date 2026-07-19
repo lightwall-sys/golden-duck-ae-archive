@@ -1,10 +1,31 @@
 {
   "schemaVersion": 1,
-  "state": "not-initialised",
-  "checkedAt": "",
+  "state": "updated",
+  "checkedAt": "2026-07-19T21:47:55.906Z",
   "previousPostCount": 0,
-  "postCount": 0,
-  "newPostCount": 0,
-  "warnings": ["The first automatic archive run has not completed yet."],
-  "sources": {}
+  "postCount": 194,
+  "newPostCount": 194,
+  "warnings": [
+    "Some posts have no recoverable image. Their archive records were retained.",
+    "At least one historical post was already unavailable before this archive was created.",
+    "Could not mirror image for “The Domesday Book of John's Campaign pledges 2015-2018”: image https://lh5.googleusercontent.com/AfwfVPotyY6uJyUaaEo-purLPj1N676Ekw1XRZVcb_kGnQ7uSxZt224VTQiM2pAc6_3syCdmUrQTiOdttG7E4DnbZ8XcPBFT1knE11ur57Dv1U0hdMQcMoKV7nRAxJYhOHIsHwDG returned HTTP 404"
+  ],
+  "sources": {
+    "goldenDuckLegacy": {
+      "ok": true,
+      "count": 178
+    },
+    "bloggerLabel": {
+      "ok": true,
+      "count": 172,
+      "pages": 2,
+      "reportedTotal": 172,
+      "complete": true
+    },
+    "recentAuthorScan": {
+      "ok": true,
+      "count": 22,
+      "pages": 3
+    }
+  }
 }
