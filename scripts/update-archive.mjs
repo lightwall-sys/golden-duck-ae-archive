@@ -10,6 +10,8 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_DIR = path.join(PUBLIC_DIR, "data");
 const POSTS_DIR = path.join(PUBLIC_DIR, "posts");
 const MEDIA_DIR = path.join(PUBLIC_DIR, "media");
+const ASSETS_DIR = path.join(PUBLIC_DIR, "assets");
+const BRAND_LOGO_PATH = path.join(ASSETS_DIR, "golden-duck-logo.png");
 const SNAPSHOTS_DIR = path.join(ROOT, "snapshots");
 const BACKUP_DIR = path.join(ROOT, "backup");
 const RAW_POSTS_DIR = path.join(BACKUP_DIR, "raw-posts");
@@ -528,6 +530,7 @@ async function ensureDirectories() {
     fs.mkdir(DATA_DIR, { recursive: true }),
     fs.mkdir(POSTS_DIR, { recursive: true }),
     fs.mkdir(MEDIA_DIR, { recursive: true }),
+    fs.mkdir(ASSETS_DIR, { recursive: true }),
     fs.mkdir(SNAPSHOTS_DIR, { recursive: true }),
     fs.mkdir(RAW_POSTS_DIR, { recursive: true })
   ]);
@@ -777,6 +780,29 @@ async function fileExists(filePath) {
   }
 }
 
+
+async function ensureGoldenDuckLogo(config, warnings) {
+  const sourceUrl = clean(config.goldenDuckLogoUrl);
+  if (!sourceUrl) return "";
+  try {
+    const response = await fetchWithRetry(sourceUrl, {}, config, "Golden Duck logo");
+    const contentType = (response.headers.get("content-type") || "").toLowerCase();
+    if (!contentType.startsWith("image/")) throw new Error(`unexpected content type ${contentType || "unknown"}`);
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (!buffer.length) throw new Error("empty image response");
+    if (buffer.length > Number(config.imageMaxBytes || 25000000)) throw new Error(`image exceeds configured limit: ${buffer.length} bytes`);
+    await fs.writeFile(BRAND_LOGO_PATH, buffer);
+    return BRAND_LOGO_PATH;
+  } catch (error) {
+    if (await fileExists(BRAND_LOGO_PATH)) {
+      warnings.push(`Could not refresh the Golden Duck logo; the existing local copy was retained: ${error.message}`);
+      return BRAND_LOGO_PATH;
+    }
+    warnings.push(`Could not preserve the Golden Duck logo for this run: ${error.message}`);
+    return "";
+  }
+}
+
 async function findExistingMedia(prefix) {
   const directory = path.dirname(prefix);
   const basename = path.basename(prefix);
@@ -878,6 +904,8 @@ async function mirrorArticle(post, config, warnings) {
     articleHtml,
     archiveUrl,
     goldenDuckArchiveUrl: config.goldenDuckArchiveUrl,
+    goldenDuckHomeUrl: config.goldenDuckHomeUrl || "https://golden-duck.co.uk/",
+    goldenDuckLogoUrl: config.brandLogoUrl || config.goldenDuckLogoUrl || "",
     hasFullContent
   });
   await fs.writeFile(path.join(articleDirectory, "index.html"), document, "utf8");
@@ -892,7 +920,7 @@ async function mirrorArticle(post, config, warnings) {
   };
 }
 
-function articleDocument({ post, articleHtml, goldenDuckArchiveUrl, hasFullContent }) {
+function articleDocument({ post, articleHtml, goldenDuckArchiveUrl, goldenDuckHomeUrl, goldenDuckLogoUrl, hasFullContent }) {
   const published = dateParts(post.published);
   const dateLabel = published
     ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
@@ -908,7 +936,8 @@ function articleDocument({ post, articleHtml, goldenDuckArchiveUrl, hasFullConte
   <style>
     :root{color-scheme:dark;--gold:#ffac00;--paper:#f3efe8;--copy:#d8d2c8;--bg:#101010;--panel:#171717;--rule:rgba(255,172,0,.25)}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--copy);font:17px/1.72 Georgia,"Times New Roman",serif}
-    header,main,footer{width:min(900px,calc(100% - 36px));margin:auto}header{padding:48px 0 30px;border-bottom:1px solid var(--rule)}
+    header,main,footer{width:min(900px,calc(100% - 36px));margin:auto}header{padding:36px 0 30px;border-bottom:1px solid var(--rule)}
+    .brand{display:inline-flex;align-items:center;justify-content:center;width:62px;height:62px;margin:0 0 24px;padding:6px;border:1px solid rgba(255,172,0,.20);background:rgba(5,5,5,.42)}.brand img{display:block;width:100%;height:100%;object-fit:contain}
     .eyebrow{margin:0 0 12px;color:var(--gold);font:800 12px/1 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase}
     h1{margin:0;color:var(--paper);font-size:clamp(34px,6vw,62px);line-height:1.05;font-weight:400}.meta{margin:16px 0 0;color:#aaa;font:14px/1.5 Arial,sans-serif}
     nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:24px}a{color:var(--gold)!important}main{padding:42px 0 64px}.post-body{overflow-wrap:anywhere}.post-body *{color:inherit!important;background-color:transparent!important;font-family:inherit!important}.post-body a{color:var(--gold)!important}.post-body img{max-width:100%;height:auto;margin:24px auto;background:transparent!important}.post-body table{display:block;max-width:100%;overflow:auto}.post-body mark{color:#151515!important;background:var(--gold)!important}
@@ -917,12 +946,13 @@ function articleDocument({ post, articleHtml, goldenDuckArchiveUrl, hasFullConte
 </head>
 <body>
   <header>
+    ${goldenDuckLogoUrl ? `<a class="brand" href="${escapeHtml(goldenDuckHomeUrl)}" aria-label="Visit Golden Duck"><img data-brand-logo src="${escapeHtml(goldenDuckLogoUrl)}" width="180" height="180" alt="Golden Duck"></a>` : ""}
     <p class="eyebrow">${hasFullContent ? "Preserved copy" : "Archive record"} · Julia Jones at Authors Electric</p>
     <h1>${escapeHtml(post.title)}</h1>
     <p class="meta">Originally published ${escapeHtml(dateLabel)}</p>
     <nav aria-label="Archive links">
       ${post.url ? `<a href="${escapeHtml(post.url)}">Open the original at Authors Electric</a>` : ""}
-      <a href="${escapeHtml(goldenDuckArchiveUrl)}">Return to the Golden Duck archive</a>
+      <a data-archive-index-link href="${escapeHtml(goldenDuckArchiveUrl)}">Return to the Golden Duck archive</a>
     </nav>
   </header>
   <main>
@@ -1130,10 +1160,18 @@ async function main() {
 
   merged = await enrichMissingPosts(merged, config, runtimeWarnings);
 
+  const brandLogoPath = await ensureGoldenDuckLogo(config, runtimeWarnings);
+  const runConfig = {
+    ...config,
+    brandLogoUrl: brandLogoPath
+      ? `${String(config.pagesBaseUrl).replace(/\/$/, "")}/assets/golden-duck-logo.png`
+      : (config.goldenDuckLogoUrl || "")
+  };
+
   const mirrored = await mapWithConcurrency(
     merged,
     Number(config.imageConcurrency || 4),
-    (post) => mirrorArticle(post, config, runtimeWarnings)
+    (post) => mirrorArticle(post, runConfig, runtimeWarnings)
   );
   const capturedPosts = classifyDuplicatePosts(mirrored).map(publicPost);
   const publicPosts = capturedPosts.filter((post) => post.display !== false);

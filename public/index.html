@@ -1,20 +1,38 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
 <title>Julia Jones — Authors Electric Archive</title>
 <link rel="stylesheet" href="archive.css">
 </head>
 <body>
 <main class="shell">
-  <p class="eyebrow">Golden Duck preservation archive</p>
-  <h1>Julia Jones at Authors Electric</h1>
-  <p class="intro">A permanent, automatically maintained index and preservation record of Julia’s Authors Electric posts.</p>
-  <div class="archive-actions">
+  <header class="archive-header">
+    <a class="brand-mark" href="https://golden-duck.co.uk/" aria-label="Visit Golden Duck">
+      <img src="assets/golden-duck-logo.png" width="180" height="180" alt="Golden Duck">
+    </a>
+    <div class="archive-header__copy">
+      <p class="eyebrow">Golden Duck preservation archive</p>
+      <h1>Julia Jones at Authors Electric</h1>
+      <p class="intro">A permanent, automatically maintained index and preservation record of Julia’s Authors Electric posts.</p>
+    </div>
+  </header>
+
+  <div class="archive-actions" id="archive-actions">
     <a class="download-button" id="download-archive" href="https://github.com/lightwall-sys/golden-duck-ae-archive/releases/latest/download/julia-jones-authors-electric-archive.zip">Download the complete archive</a>
     <p class="download-note">Includes preserved article pages, raw article records, mirrored images and dated archive snapshots.</p>
   </div>
-  <div class="tools"><input id="search" type="search" placeholder="Search titles or years"><select id="year"><option value="all">All years</option></select></div>
+
+  <p class="offline-note" id="offline-note" hidden><strong>Offline archive copy.</strong> Search and preserved-copy links work locally after the ZIP has been fully extracted.</p>
+
+  <div class="tools">
+    <label class="visually-hidden" for="search">Search archive</label>
+    <input id="search" type="search" placeholder="Search titles or years">
+    <label class="visually-hidden" for="year">Filter by year</label>
+    <select id="year"><option value="all">All years</option></select>
+  </div>
   <p id="status" class="status">Loading archive…</p>
   <div id="archive"></div>
 </main>

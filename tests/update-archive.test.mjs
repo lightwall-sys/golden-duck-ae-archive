@@ -134,3 +134,24 @@ test("offlineHostedPath converts hosted preserved pages and images into bundle-r
     "media/123/photo.jpg"
   );
 });
+
+import {
+  localisePreservedPageHtml,
+  relativeArchiveIndexHref
+} from "../scripts/build-download-bundle.mjs";
+
+test("relativeArchiveIndexHref points a deeply nested preserved page back to the offline index", () => {
+  const bundle = "/tmp/archive/Julia-Jones-Authors-Electric-Archive";
+  const article = `${bundle}/posts/2011/12/where-to-begin/index.html`;
+  assert.equal(relativeArchiveIndexHref(article, bundle), "../../../../index.html");
+});
+
+test("localisePreservedPageHtml rewrites archive navigation and logo to local bundle paths", () => {
+  const bundle = "/tmp/archive/Julia-Jones-Authors-Electric-Archive";
+  const article = `${bundle}/posts/2011/12/where-to-begin/index.html`;
+  const html = '<a data-archive-index-link href="https://golden-duck.co.uk/julia-ae-archive">Return</a><img data-brand-logo src="https://example.com/logo.png" alt="Golden Duck">';
+  const localised = localisePreservedPageHtml(html, { articleFilePath: article, bundleDirectory: bundle });
+  assert.match(localised, /href="\.\.\/\.\.\/\.\.\/\.\.\/index\.html"/);
+  assert.match(localised, /src="\.\.\/\.\.\/\.\.\/\.\.\/assets\/golden-duck-logo\.png"/);
+  assert.doesNotMatch(localised, /golden-duck\.co\.uk\/julia-ae-archive/);
+});
