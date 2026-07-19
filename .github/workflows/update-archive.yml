@@ -48,7 +48,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No repository changes to commit."
           else
-            git commit -m "Update Authors Electric archive [skip ci]"
+            git commit -m "Refresh verified Authors Electric archive [skip ci]"
             git push
           fi
 
@@ -62,15 +62,16 @@ jobs:
         run: |
           ARCHIVE_STATE=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/status.json','utf8'));process.stdout.write(String(x.state||''));")
           RELEASE_COUNT=$(gh release list --limit 1 --json tagName --jq 'length')
-          if [ "$ARCHIVE_STATE" = "updated" ] || [ "$RELEASE_COUNT" = "0" ]; then
-            TAG="archive-$(date -u +'%Y%m%d-%H%M%S')"
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          if [ "$ARCHIVE_STATE" = "updated" ] || [ "$RELEASE_COUNT" = "0" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            TAG="archive-v${PACKAGE_VERSION}-$(date -u +'%Y%m%d-%H%M%S')"
             VERIFIED=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/archive-latest.json','utf8'));process.stdout.write(String(x.generatedAt||''));")
             gh release create "$TAG" \
               dist/julia-jones-authors-electric-archive.zip \
-              --title "Julia Jones Authors Electric archive — $VERIFIED" \
+              --title "Julia Jones Authors Electric archive v${PACKAGE_VERSION} — $VERIFIED" \
               --notes "Automatically generated complete archive download. Includes the public index, preserved article pages, raw article records, mirrored images, duplicate audit data and dated metadata snapshots."
           else
-            echo "Archive content is unchanged and a complete download already exists."
+            echo "Archive content is unchanged and a current complete download already exists."
           fi
 
       - name: Configure GitHub Pages
