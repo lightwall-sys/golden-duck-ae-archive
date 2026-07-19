@@ -1173,6 +1173,7 @@ async function main() {
     newestPostDate: publicPosts[0]?.published || "",
     goldenDuckArchiveUrl: config.goldenDuckArchiveUrl,
     sourceBlogUrl: config.bloggerBaseUrl,
+    downloadUrl: config.downloadUrl || "",
     warnings: validation.warnings,
     sources: sourceReport,
     posts: publicPosts
@@ -1196,9 +1197,10 @@ async function main() {
   await fs.writeFile(CAPTURED_PATH, `${JSON.stringify(capturedPayload, null, 2)}\n`, "utf8");
   await fs.writeFile(DUPLICATE_REPORT_PATH, `${JSON.stringify(duplicateReport, null, 2)}\n`, "utf8");
 
+  // Refresh the public last-verified timestamp and source report on every successful run.
+  await fs.writeFile(ARCHIVE_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  await writeArchiveJavaScript(payload);
   if (changed || !existingPosts.length) {
-    await fs.writeFile(ARCHIVE_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-    await writeArchiveJavaScript(payload);
     const snapshotName = `archive-${generatedAt.replace(/[:.]/g, "-")}.json`;
     await fs.writeFile(path.join(SNAPSHOTS_DIR, snapshotName), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
   }

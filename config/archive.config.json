@@ -17,5 +17,7 @@
   "imageConcurrency": 4,
   "heartbeatDays": 30,
   "pageScrapeConcurrency": 3,
-  "requirePreservedCopiesForAvailablePosts": true
+  "requirePreservedCopiesForAvailablePosts": true,
+  "downloadUrl": "https://github.com/lightwall-sys/golden-duck-ae-archive/releases/latest/download/julia-jones-authors-electric-archive.zip",
+  "downloadAssetName": "julia-jones-authors-electric-archive.zip"
 }

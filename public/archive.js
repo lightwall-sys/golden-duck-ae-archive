@@ -3,10 +3,12 @@
   const root=document.querySelector('#archive');
   const search=document.querySelector('#search');
   const year=document.querySelector('#year');
+  const download=document.querySelector('#download-archive');
   const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   try{
-    const data=await fetch('data/archive-latest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Archive data unavailable');return r.json()});
+    const data=window.GoldenDuckAuthorsElectricArchive||await fetch('data/archive-latest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Archive data unavailable');return r.json()});
     const posts=data.posts||[];
+    if(download&&data.downloadUrl)download.href=data.downloadUrl;
     const years=[...new Set(posts.map(p=>p.year))].sort((a,b)=>b-a);
     year.innerHTML='<option value="all">All years</option>'+years.map(y=>`<option>${y}</option>`).join('');
     function render(){

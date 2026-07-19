@@ -120,3 +120,17 @@ test("cleanReadableArticleHtml removes Blogger colours and inline presentation w
   assert.doesNotMatch(cleaned, /style=|class=|<\/?font/i);
   assert.match(cleaned, /<strong>Readable text<\/strong>/);
 });
+
+import { offlineHostedPath } from "../scripts/build-download-bundle.mjs";
+
+test("offlineHostedPath converts hosted preserved pages and images into bundle-relative paths", () => {
+  const base = "https://lightwall-sys.github.io/golden-duck-ae-archive";
+  assert.equal(
+    offlineHostedPath(`${base}/posts/2011/12/where-to-begin/`, base, "page"),
+    "posts/2011/12/where-to-begin/index.html"
+  );
+  assert.equal(
+    offlineHostedPath(`${base}/media/123/photo.jpg`, base, "file"),
+    "media/123/photo.jpg"
+  );
+});
