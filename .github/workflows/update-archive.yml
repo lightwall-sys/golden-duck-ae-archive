@@ -56,7 +56,7 @@ jobs:
         run: |
           npm run bundle
           cd dist
-          zip -r -q julia-jones-authors-electric-archive.zip Julia-Jones-Authors-Electric-Archive
+          zip -r -q julia-jones-authors-electric-archive.zip "Julia Jones - Authors Electric Archive"
 
       - name: Publish complete archive download when needed
         run: |
@@ -69,7 +69,7 @@ jobs:
             gh release create "$TAG" \
               dist/julia-jones-authors-electric-archive.zip \
               --title "Julia Jones Authors Electric archive v${PACKAGE_VERSION} — $VERIFIED" \
-              --notes "Automatically generated complete archive download. Includes the public index, preserved article pages, raw article records, mirrored images, duplicate audit data and dated metadata snapshots."
+              --notes "Automatically generated complete archive download. Open READ ME FIRST.txt, then double-click OPEN THE ARCHIVE.html. Includes preserved article pages, raw article records, mirrored images, duplicate audit data and dated metadata snapshots."
           else
             echo "Archive content is unchanged and a current complete download already exists."
           fi
