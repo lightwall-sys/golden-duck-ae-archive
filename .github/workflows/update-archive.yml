@@ -17,6 +17,7 @@ permissions:
 
 env:
   GH_TOKEN: ${{ github.token }}
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   update-and-deploy:
@@ -29,10 +30,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
+          package-manager-cache: false
+
+      - name: Confirm Node.js version
+        run: node --version
 
       - name: Run safety tests
         run: npm test
@@ -42,15 +47,32 @@ jobs:
 
       - name: Commit verified archive changes
         run: |
+          set -e
           git config user.name "golden-duck-archive-bot"
           git config user.email "golden-duck-archive-bot@users.noreply.github.com"
           git add public snapshots backup automation-heartbeat.txt
           if git diff --cached --quiet; then
             echo "No repository changes to commit."
-          else
-            git commit -m "Refresh verified Authors Electric archive [skip ci]"
-            git push
+            exit 0
           fi
+
+          git commit -m "Refresh verified Authors Electric archive [skip ci]"
+
+          for attempt in 1 2 3; do
+            if git fetch origin main && git rebase origin/main && git push origin HEAD:main; then
+              echo "Archive changes pushed successfully."
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              wait_seconds=$((attempt * 10))
+              echo "Push attempt $attempt failed. Retrying in ${wait_seconds}s..."
+              git rebase --abort 2>/dev/null || true
+              sleep "$wait_seconds"
+            fi
+          done
+
+          echo "Archive changes could not be pushed after three attempts."
+          exit 1
 
       - name: Prepare complete archive download
         run: |
@@ -58,30 +80,108 @@ jobs:
           cd dist
           zip -r -q julia-jones-authors-electric-archive.zip "Julia Jones - Authors Electric Archive"
 
-      - name: Publish complete archive download when needed
-        run: |
-          ARCHIVE_STATE=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/status.json','utf8'));process.stdout.write(String(x.state||''));")
-          RELEASE_COUNT=$(gh release list --limit 1 --json tagName --jq 'length')
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          if [ "$ARCHIVE_STATE" = "updated" ] || [ "$RELEASE_COUNT" = "0" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-            TAG="archive-v${PACKAGE_VERSION}-$(date -u +'%Y%m%d-%H%M%S')"
-            VERIFIED=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/archive-latest.json','utf8'));process.stdout.write(String(x.generatedAt||''));")
-            gh release create "$TAG" \
-              dist/julia-jones-authors-electric-archive.zip \
-              --title "Julia Jones Authors Electric archive v${PACKAGE_VERSION} — $VERIFIED" \
-              --notes "Automatically generated complete archive download. Open READ ME FIRST.txt, then double-click OPEN THE ARCHIVE.html. Includes preserved article pages, raw article records, mirrored images, duplicate audit data and dated metadata snapshots."
-          else
-            echo "Archive content is unchanged and a current complete download already exists."
-          fi
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload GitHub Pages files
-        uses: actions/upload-pages-artifact@v4
+      - name: Keep ZIP as a workflow artifact
+        uses: actions/upload-artifact@v7
         with:
-          path: public
+          name: julia-jones-authors-electric-archive
+          path: dist/julia-jones-authors-electric-archive.zip
+          retention-days: 30
+          if-no-files-found: error
 
-      - name: Deploy GitHub Pages
+      - name: Package GitHub Pages files
+        run: |
+          tar \
+            --dereference \
+            --hard-dereference \
+            --directory public \
+            -cvf "$RUNNER_TEMP/github-pages.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=".[^/]*" \
+            .
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/github-pages.tar
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Publish complete archive download when needed
+        shell: bash
+        run: |
+          set +e
+
+          ARCHIVE_STATE=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/status.json','utf8'));process.stdout.write(String(x.state||''));")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          LATEST_TAG=$(gh release list --exclude-drafts --limit 1 --json tagName --jq '.[0].tagName // ""' 2>/dev/null)
+          NEED_RELEASE=false
+
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || [ "$ARCHIVE_STATE" = "updated" ] || [[ "$LATEST_TAG" != archive-v${PACKAGE_VERSION}-* ]]; then
+            NEED_RELEASE=true
+          fi
+
+          if [ "$NEED_RELEASE" != "true" ]; then
+            echo "Archive content is unchanged and the current package release already exists."
+            exit 0
+          fi
+
+          TAG="archive-v${PACKAGE_VERSION}-$(date -u +'%Y%m%d-%H%M%S')"
+          VERIFIED=$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('public/data/archive-latest.json','utf8'));process.stdout.write(String(x.generatedAt||''));")
+          TITLE="Julia Jones Authors Electric archive v${PACKAGE_VERSION} — $VERIFIED"
+          NOTES="Automatically generated complete archive download. Open READ ME FIRST.txt, then double-click OPEN THE ARCHIVE.html. Includes preserved article pages, raw article records, mirrored images, duplicate audit data and dated metadata snapshots."
+
+          release_created=false
+          for attempt in 1 2 3 4 5; do
+            if gh release create "$TAG" --draft --title "$TITLE" --notes "$NOTES"; then
+              release_created=true
+              break
+            fi
+            wait_seconds=$((attempt * 20))
+            echo "Release creation attempt $attempt failed. Retrying in ${wait_seconds}s..."
+            sleep "$wait_seconds"
+          done
+
+          if [ "$release_created" != "true" ]; then
+            echo "::warning::GitHub Releases was unavailable. GitHub Pages was deployed and the ZIP is available as a workflow artifact. A later scheduled run will retry the Release."
+            exit 0
+          fi
+
+          upload_succeeded=false
+          for attempt in 1 2 3 4 5; do
+            if gh release upload "$TAG" dist/julia-jones-authors-electric-archive.zip --clobber; then
+              upload_succeeded=true
+              break
+            fi
+            wait_seconds=$((attempt * 30))
+            echo "Release upload attempt $attempt failed. Retrying in ${wait_seconds}s..."
+            sleep "$wait_seconds"
+          done
+
+          if [ "$upload_succeeded" != "true" ]; then
+            echo "::warning::GitHub Releases could not accept the ZIP after five attempts. The previous public download remains available and the new ZIP is attached to this workflow run."
+            exit 0
+          fi
+
+          published=false
+          for attempt in 1 2 3; do
+            if gh release edit "$TAG" --draft=false; then
+              published=true
+              break
+            fi
+            wait_seconds=$((attempt * 20))
+            echo "Release publication attempt $attempt failed. Retrying in ${wait_seconds}s..."
+            sleep "$wait_seconds"
+          done
+
+          if [ "$published" != "true" ]; then
+            echo "::warning::The ZIP uploaded but GitHub could not publish the draft Release. The workflow artifact remains available and a later run will retry."
+            exit 0
+          fi
+
+          echo "Complete archive Release published successfully."
