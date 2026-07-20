@@ -1,6 +1,6 @@
 {
   "name": "golden-duck-ae-archive",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "description": "Automated archive and preservation backup for Julia Jones's Authors Electric posts.",

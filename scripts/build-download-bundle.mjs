@@ -8,7 +8,8 @@ const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_DIR = path.join(PUBLIC_DIR, "data");
 const DIST_DIR = path.join(ROOT, "dist");
-const BUNDLE_DIR = path.join(DIST_DIR, "Julia-Jones-Authors-Electric-Archive");
+const BUNDLE_DIR = path.join(DIST_DIR, "Julia Jones - Authors Electric Archive");
+const OFFLINE_ENTRY_FILE = "OPEN THE ARCHIVE.html";
 const CONFIG_PATH = path.join(ROOT, "config", "archive.config.json");
 const PACKAGE_PATH = path.join(ROOT, "package.json");
 
@@ -58,8 +59,8 @@ function localisePost(post, pagesBaseUrl) {
 }
 
 export function relativeArchiveIndexHref(articleFilePath, bundleDirectory) {
-  const relative = path.relative(path.dirname(articleFilePath), path.join(bundleDirectory, "index.html"));
-  return relative.split(path.sep).join("/") || "index.html";
+  const relative = path.relative(path.dirname(articleFilePath), path.join(bundleDirectory, OFFLINE_ENTRY_FILE));
+  return relative.split(path.sep).join("/") || OFFLINE_ENTRY_FILE;
 }
 
 function replaceTaggedAttribute(html, marker, attribute, value) {
@@ -135,7 +136,7 @@ async function writeLocalData(filename, pagesBaseUrl) {
     ...payload,
     bundleMode: "offline",
     downloadUrl: "",
-    goldenDuckArchiveUrl: "index.html",
+    goldenDuckArchiveUrl: OFFLINE_ENTRY_FILE,
     posts: Array.isArray(payload.posts) ? payload.posts.map((post) => localisePost(post, pagesBaseUrl)) : []
   };
   await fs.mkdir(path.join(BUNDLE_DIR, "data"), { recursive: true });
@@ -153,7 +154,7 @@ async function main() {
   await fs.rm(DIST_DIR, { recursive: true, force: true });
   await fs.mkdir(BUNDLE_DIR, { recursive: true });
 
-  await copyIfPresent(path.join(PUBLIC_DIR, "index.html"), path.join(BUNDLE_DIR, "index.html"));
+  await copyIfPresent(path.join(PUBLIC_DIR, "index.html"), path.join(BUNDLE_DIR, OFFLINE_ENTRY_FILE));
   await copyIfPresent(path.join(PUBLIC_DIR, "archive.js"), path.join(BUNDLE_DIR, "archive.js"));
   await copyIfPresent(path.join(PUBLIC_DIR, "archive.css"), path.join(BUNDLE_DIR, "archive.css"));
   await copyIfPresent(path.join(PUBLIC_DIR, "assets"), path.join(BUNDLE_DIR, "assets"));
@@ -170,6 +171,7 @@ async function main() {
   await copyIfPresent(path.join(DATA_DIR, "status.json"), path.join(BUNDLE_DIR, "data", "status.json"));
 
   const localArchive = await readJson(path.join(BUNDLE_DIR, "data", "archive-latest.json"), { posts: [] });
+  await fs.mkdir(path.join(BUNDLE_DIR, "data"), { recursive: true });
   await fs.writeFile(
     path.join(BUNDLE_DIR, "data", "archive-latest.js"),
     `window.GoldenDuckAuthorsElectricArchive = ${JSON.stringify(localArchive)};\nwindow.dispatchEvent(new CustomEvent("goldenduck:ae-archive-ready", { detail: window.GoldenDuckAuthorsElectricArchive }));\n`,
@@ -197,29 +199,52 @@ async function main() {
     preservedPages,
     rawPosts,
     snapshots,
-    assets
+    assets,
+    entryFile: OFFLINE_ENTRY_FILE
   };
   await fs.writeFile(path.join(BUNDLE_DIR, "MANIFEST.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 
-  const readme = `JULIA JONES AT AUTHORS ELECTRIC — COMPLETE ARCHIVE DOWNLOAD\n\n` +
-    `Generated: ${generatedAt}\n` +
-    `Archive last verified: ${manifest.archiveVerifiedAt || "unknown"}\n` +
-    `Public posts: ${manifest.publicPostCount}\n` +
-    `Captured records: ${manifest.capturedPostCount}\n` +
-    `Full preserved copies: ${manifest.fullCopyCount}\n` +
-    `Probable duplicates retained internally: ${manifest.duplicateCount}\n` +
-    `Mirrored image files: ${manifest.media.fileCount}\n\n` +
-    `HOW TO USE THIS BACKUP\n` +
-    `1. Extract the ZIP completely before opening anything.\n` +
-    `2. Open index.html to browse the archive.\n` +
-    `3. Preserved article pages are in the posts folder.\n` +
-    `4. The Return to archive link inside each preserved article returns to the extracted index.html.\n` +
-    `5. Mirrored images are in the media folder and are linked relatively from the preserved pages.\n` +
-    `6. Original captured article HTML is retained in raw-posts as JSON.\n` +
-    `7. Machine-readable archive records are in data.\n` +
-    `8. Historical metadata snapshots are in snapshots.\n\n` +
-    `The original Authors Electric links remain included for reference and require an internet connection. The locally preserved copies, archive navigation and mirrored images are intended to remain readable offline. Copyright remains with Julia Jones and the respective owners of included material.\n`;
-  await fs.writeFile(path.join(BUNDLE_DIR, "START-HERE.txt"), readme, "utf8");
+  const readme = `JULIA JONES AT AUTHORS ELECTRIC — COMPLETE OFFLINE ARCHIVE
+
+` +
+    `This folder is ready to use. Julia only needs the file named:
+
+` +
+    `OPEN THE ARCHIVE.html
+
+` +
+    `Double-click that file to browse and search the archive in a normal web browser.
+
+` +
+    `IMPORTANT
+` +
+    `- Keep this entire folder together. Do not move OPEN THE ARCHIVE.html on its own.
+` +
+    `- Preserved copy links and saved images work from this folder without an internet connection.
+` +
+    `- Original links open the live Authors Electric website and therefore require the internet.
+
+` +
+    `ARCHIVE DETAILS
+` +
+    `Prepared: ${generatedAt}
+` +
+    `Archive last verified: ${manifest.archiveVerifiedAt || "unknown"}
+` +
+    `Public posts: ${manifest.publicPostCount}
+` +
+    `Captured records: ${manifest.capturedPostCount}
+` +
+    `Full preserved copies: ${manifest.fullCopyCount}
+` +
+    `Probable duplicates retained internally: ${manifest.duplicateCount}
+` +
+    `Mirrored image files: ${manifest.media.fileCount}
+
+` +
+    `The other folders contain the saved articles, images and technical backup records. They do not need to be opened during normal use. Copyright remains with Julia Jones and the respective owners of included material.
+`;
+  await fs.writeFile(path.join(BUNDLE_DIR, "READ ME FIRST.txt"), readme, "utf8");
 
   console.log(`Download bundle prepared: ${manifest.publicPostCount} public posts, ${manifest.fullCopyCount} full copies, ${manifest.media.fileCount} mirrored image files, ${localisedPageCount} offline article pages localised.`);
 }
