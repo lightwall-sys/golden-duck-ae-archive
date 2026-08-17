@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "state": "updated",
-  "checkedAt": "2026-08-15T04:52:08.699Z",
-  "previousPostCount": 194,
+  "state": "healthy-no-change",
+  "checkedAt": "2026-08-17T05:20:36.519Z",
+  "previousPostCount": 195,
   "capturedPostCount": 195,
   "postCount": 194,
   "duplicateCount": 1,
   "fullCopyCount": 194,
   "metadataOnlyCount": 1,
-  "newPostCount": 1,
+  "newPostCount": 0,
   "warnings": [
     "Some posts have no recoverable image. Their archive records were retained.",
     "At least one historical post was already unavailable before this archive was created.",
