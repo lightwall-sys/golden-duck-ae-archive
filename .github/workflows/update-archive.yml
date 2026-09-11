@@ -3,7 +3,7 @@ name: Update Authors Electric archive
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 04 * * *"
+    - cron: "17 */4 * * *"
       timezone: "Europe/London"
 
 concurrency:

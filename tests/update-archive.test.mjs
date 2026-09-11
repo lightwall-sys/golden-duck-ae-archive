@@ -1,10 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  archiveChanged,
+  articleRevisionHash,
   canonicalBlogspotUrl,
   mergeRecords,
   normaliseBloggerEntry,
-  parseLegacyArchive
+  parseLegacyArchive,
+  restorePreservedBody
 } from "../scripts/update-archive.mjs";
 
 test("canonicalBlogspotUrl removes www, country domains, HTTP, query and hash", () => {
@@ -76,6 +79,86 @@ test("mergeRecords is append-preserving and prefers richer Blogger data", () => 
   assert.equal(merged[0].archiveUrl, "https://example.com/archive");
   assert.equal(merged[0].image, "https://example.com/photo.jpg");
   assert.equal(merged[0].id, "123");
+});
+
+test("mergeRecords replaces an existing article revision when Blogger returns the same canonical URL", () => {
+  const url = "https://authorselectric.blogspot.com/2026/09/welcome-to-big-tree-lodge.html";
+  const existing = [{
+    id: "6091472654001519608",
+    title: "Welcome to Big Tree Lodge",
+    published: "2026-09-09",
+    url,
+    image: "https://example.com/old-lead.jpg",
+    excerpt: "Old excerpt",
+    updated: "2026-09-09",
+    contentHtml: '<p>Old wording.</p><img src="https://example.com/old-lead.jpg">',
+    sources: ["existing-archive"]
+  }];
+  const blogger = [{
+    id: "6091472654001519608",
+    title: "Welcome to Big Tree Lodge",
+    published: "2026-09-09",
+    url,
+    image: "https://example.com/new-lead.jpg",
+    excerpt: "Revised excerpt",
+    updated: "2026-09-10",
+    contentHtml: '<p>Julia revised this wording.</p><img src="https://example.com/new-lead.jpg"><img src="https://example.com/added.jpg">',
+    sources: ["blogger-label"]
+  }];
+  const merged = mergeRecords([existing, blogger]);
+  assert.equal(merged.length, 1);
+  assert.equal(merged[0].image, "https://example.com/new-lead.jpg");
+  assert.equal(merged[0].excerpt, "Revised excerpt");
+  assert.equal(merged[0].updated, "2026-09-10");
+  assert.match(merged[0].contentHtml, /Julia revised this wording/);
+  assert.match(merged[0].contentHtml, /added\.jpg/);
+});
+
+test("articleRevisionHash changes for prose edits, added images and image reordering", () => {
+  const base = {
+    title: "Welcome to Big Tree Lodge",
+    published: "2026-09-09",
+    contentHtml: '<p>Original wording.</p><img src="https://example.com/a.jpg"><img src="https://example.com/b.jpg">'
+  };
+  const proseEdit = { ...base, contentHtml: base.contentHtml.replace("Original wording.", "Revised wording.") };
+  const addedImage = { ...base, contentHtml: `${base.contentHtml}<img src="https://example.com/c.jpg">` };
+  const imageReorder = { ...base, contentHtml: '<p>Original wording.</p><img src="https://example.com/b.jpg"><img src="https://example.com/a.jpg">' };
+  assert.notEqual(articleRevisionHash(base), articleRevisionHash(proseEdit));
+  assert.notEqual(articleRevisionHash(base), articleRevisionHash(addedImage));
+  assert.notEqual(articleRevisionHash(base), articleRevisionHash(imageReorder));
+});
+
+test("archiveChanged treats a prose-only revision as a real archive change", () => {
+  const stable = {
+    id: "6091472654001519608",
+    title: "Welcome to Big Tree Lodge",
+    published: "2026-09-09",
+    url: "https://authorselectric.blogspot.com/2026/09/welcome-to-big-tree-lodge.html",
+    image: "https://example.com/lead.jpg",
+    preservationStatus: "full",
+    revisionHash: "old-revision"
+  };
+  assert.equal(archiveChanged([stable], [{ ...stable, revisionHash: "new-revision" }]), true);
+  assert.equal(archiveChanged([stable], [{ ...stable }]), false);
+});
+
+test("restorePreservedBody keeps a last-known-good body when live recovery is unavailable", () => {
+  const url = "https://authorselectric.blogspot.com/2020/01/example.html";
+  const restored = restorePreservedBody(
+    { id: "123", title: "Example", published: "2020-01-09", url, sources: ["existing-archive"] },
+    { id: "123", title: "Example", published: "2020-01-09", url, contentHtml: "<p>Previously verified preserved content.</p>" }
+  );
+  assert.match(restored.contentHtml, /Previously verified preserved content/);
+  assert.equal(restored.sources.includes("preserved-raw-fallback"), true);
+  assert.ok(restored.revisionHash);
+});
+
+test("restorePreservedBody refuses a raw copy belonging to a different canonical URL", () => {
+  const restored = restorePreservedBody(
+    { id: "123", title: "Example", published: "2020-01-09", url: "https://authorselectric.blogspot.com/2020/01/example.html" },
+    { id: "123", url: "https://authorselectric.blogspot.com/2020/01/different.html", contentHtml: "<p>Wrong article.</p>" }
+  );
+  assert.equal(restored.contentHtml, undefined);
 });
 
 import {

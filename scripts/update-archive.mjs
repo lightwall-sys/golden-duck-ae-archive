@@ -279,6 +279,20 @@ function contentFingerprint(record) {
   return createHash("sha256").update(text).digest("hex");
 }
 
+export function articleRevisionHash(record) {
+  const html = cleanReadableArticleHtml(record?.contentHtml || "");
+  if (!html) return "";
+  const normalisedHtml = html
+    .replace(/\s+/g, " ")
+    .replace(/>\s+</g, "><")
+    .trim();
+  return createHash("sha256").update(JSON.stringify({
+    title: cleanTitle(record?.title || ""),
+    published: isoDate(record?.published || ""),
+    html: normalisedHtml
+  })).digest("hex");
+}
+
 function tokenSet(value) {
   return new Set(contentText(value).split(" ").filter((token) => token.length > 2));
 }
@@ -523,6 +537,38 @@ async function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
+}
+
+function postStorageKey(post) {
+  return String(post?.id || createHash("sha1").update(post?.url || "").digest("hex").slice(0, 16))
+    .replace(/[^a-z0-9_-]+/gi, "-");
+}
+
+export function restorePreservedBody(post, rawPost) {
+  if (!post || post.contentHtml || !rawPost?.contentHtml) return post;
+  const postUrl = canonicalBlogspotUrl(post.url);
+  const rawUrl = canonicalBlogspotUrl(rawPost.url);
+  if (postUrl && rawUrl && postUrl !== rawUrl) return post;
+  return {
+    ...post,
+    contentHtml: rawPost.contentHtml,
+    revisionHash: clean(rawPost.revisionHash) || articleRevisionHash({
+      ...post,
+      title: rawPost.title || post.title,
+      published: rawPost.published || post.published,
+      contentHtml: rawPost.contentHtml
+    }),
+    sources: Array.from(new Set([...(post.sources || []), "preserved-raw-fallback"]))
+  };
+}
+
+async function hydratePreservedBodies(posts) {
+  return mapWithConcurrency(posts, 8, async (post) => {
+    if (!post?.url || post.contentHtml || post.status === "original-unavailable") return post;
+    const rawPath = path.join(RAW_POSTS_DIR, `${postStorageKey(post)}.json`);
+    const rawPost = await readJson(rawPath, null);
+    return restorePreservedBody(post, rawPost);
+  });
 }
 
 async function ensureDirectories() {
@@ -827,15 +873,26 @@ async function mirrorArticle(post, config, warnings) {
   );
   await fs.mkdir(articleDirectory, { recursive: true });
 
-  const postKey = String(post.id || createHash("sha1").update(post.url).digest("hex").slice(0, 16))
-    .replace(/[^a-z0-9_-]+/gi, "-");
+  const postKey = postStorageKey(post);
   const mediaDirectory = path.join(MEDIA_DIR, postKey);
   await fs.mkdir(mediaDirectory, { recursive: true });
 
   const hasFullContent = Boolean(post.contentHtml);
-  if (hasFullContent) {
+  const currentRevisionHash = hasFullContent ? articleRevisionHash(post) : "";
+  const rawPath = path.join(RAW_POSTS_DIR, `${postKey}.json`);
+  const previousRawPost = hasFullContent ? await readJson(rawPath, null) : null;
+  const previousRevisionHash = clean(previousRawPost?.revisionHash) || (previousRawPost?.contentHtml
+    ? articleRevisionHash({
+      ...post,
+      title: previousRawPost.title || post.title,
+      published: previousRawPost.published || post.published,
+      contentHtml: previousRawPost.contentHtml
+    })
+    : "");
+  const revisionChanged = Boolean(hasFullContent && currentRevisionHash && currentRevisionHash !== previousRevisionHash);
+  if (hasFullContent && (!previousRawPost || revisionChanged)) {
     await fs.writeFile(
-      path.join(RAW_POSTS_DIR, `${postKey}.json`),
+      rawPath,
       `${JSON.stringify({
         capturedAt: new Date().toISOString(),
         id: post.id,
@@ -843,6 +900,10 @@ async function mirrorArticle(post, config, warnings) {
         published: post.published,
         url: post.url,
         originalUrl: post.originalUrl,
+        updated: post.updated || "",
+        originalImage: post.originalImage || post.image || "",
+        excerpt: post.excerpt || "",
+        revisionHash: currentRevisionHash,
         contentHtml: post.contentHtml
       }, null, 2)}\n`,
       "utf8"
@@ -915,8 +976,9 @@ async function mirrorArticle(post, config, warnings) {
     archiveUrl,
     image: localImageUrl || post.image,
     originalImage: post.originalImage || post.image,
+    revisionHash: currentRevisionHash || post.revisionHash || "",
     preservationStatus: hasFullContent ? "full" : "metadata-only",
-    mirroredAt: new Date().toISOString()
+    mirroredAt: revisionChanged || !post.mirroredAt ? new Date().toISOString() : post.mirroredAt
   };
 }
 
@@ -1005,7 +1067,7 @@ function publicPost(record) {
   };
 }
 
-function archiveChanged(previousPosts, nextPosts) {
+export function archiveChanged(previousPosts, nextPosts) {
   const comparable = (posts) => JSON.stringify((posts || []).map((post) => ({
     id: post.id,
     title: post.title,
@@ -1013,6 +1075,11 @@ function archiveChanged(previousPosts, nextPosts) {
     url: post.url,
     archiveUrl: post.archiveUrl,
     image: post.image,
+    originalImage: post.originalImage,
+    imageAlt: post.imageAlt,
+    excerpt: post.excerpt,
+    updated: post.updated,
+    revisionHash: post.revisionHash,
     status: post.status,
     note: post.note,
     display: post.display,
@@ -1096,20 +1163,25 @@ async function main() {
   const existingPublicPayload = await readJson(ARCHIVE_PATH, { posts: [] });
   const existingCapturedPayload = await readJson(CAPTURED_PATH, null);
   const existingPayload = existingCapturedPayload || existingPublicPayload;
-  const existingPosts = (existingPayload.posts || []).map((post) => ({ ...post, sources: [...(post.sources || []), "existing-archive"] }));
+  let existingPosts = (existingPayload.posts || []).map((post) => ({ ...post, sources: [...(post.sources || []), "existing-archive"] }));
+  existingPosts = await hydratePreservedBodies(existingPosts);
   const existingPublicPosts = existingPublicPayload.posts || [];
   const generatedAt = new Date().toISOString();
   const sourceReport = {};
   const runtimeWarnings = [];
 
   let legacyPosts = [];
-  try {
-    const legacyHtml = await fetchText(config.legacyArchiveUrl, config, "Golden Duck legacy archive");
-    legacyPosts = parseLegacyArchive(legacyHtml);
-    sourceReport.goldenDuckLegacy = { ok: true, count: legacyPosts.length };
-  } catch (error) {
-    sourceReport.goldenDuckLegacy = { ok: false, count: 0, error: error.message };
-    runtimeWarnings.push(`Golden Duck legacy source was unavailable: ${error.message}`);
+  if (!existingPosts.length && config.legacyArchiveUrl) {
+    try {
+      const legacyHtml = await fetchText(config.legacyArchiveUrl, config, "Golden Duck legacy archive");
+      legacyPosts = parseLegacyArchive(legacyHtml);
+      sourceReport.goldenDuckLegacy = { ok: true, count: legacyPosts.length, bootstrapOnly: true };
+    } catch (error) {
+      sourceReport.goldenDuckLegacy = { ok: false, count: 0, error: error.message, bootstrapOnly: true };
+      runtimeWarnings.push(`Golden Duck legacy source was unavailable during bootstrap: ${error.message}`);
+    }
+  } else {
+    sourceReport.goldenDuckLegacy = { ok: true, count: 0, skipped: true, bootstrapOnly: true };
   }
 
   let labelResult = { posts: [], pages: 0, reportedTotal: 0, complete: false };
