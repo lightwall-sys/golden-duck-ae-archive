@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-10T08:05:09.693Z",
+  "generatedAt": "2026-09-11T11:25:20.750Z",
   "archiveState": "last-known-good",
   "postCount": 196,
   "capturedPostCount": 196,
@@ -19,7 +19,9 @@
   "sources": {
     "goldenDuckLegacy": {
       "ok": true,
-      "count": 9
+      "count": 0,
+      "skipped": true,
+      "bootstrapOnly": true
     },
     "bloggerLabel": {
       "ok": true,
@@ -46,8 +48,8 @@
       "url": "https://authorselectric.blogspot.com/2026/09/welcome-to-big-tree-lodge.html",
       "originalUrl": "https://authorselectric.blogspot.com/2026/09/welcome-to-big-tree-lodge.html",
       "archiveUrl": "https://lightwall-sys.github.io/golden-duck-ae-archive/posts/2026/09/welcome-to-big-tree-lodge/",
-      "image": "https://lightwall-sys.github.io/golden-duck-ae-archive/media/6091472654001519608/e9d7e99dfa3bc7c7e532.jpg",
-      "originalImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAgz4Bf3YJ-lBC1tLHGSL_UDY8J0aiJhDE9JY1LvfAm5RMUowBTgElsDHtww54cbEbm25rO4RrqmeEKsVoCJtR0jzU-SQ0E4VgC8Ibz8jhx6sdgTFb5jM1NdPlVOseuDkwO9P1lwQfhAeW5X-ki2zDVJg01cXKhtwHlL7Feqzq3imHlXEHbGlNDLDKzE6G/s320/jj-at-big-tree-lodge.jpg",
+      "image": "https://lightwall-sys.github.io/golden-duck-ae-archive/media/6091472654001519608/fee6cd8c91e9e5edb8eb.jpg",
+      "originalImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga-kT0CG90vYMKkRl_jBxK_9uGz8bmOLJaz57_wLQ-ECyCqoVe_eUBRZJ35RIdEi7_5fMpLASvokmYI_XktOW5O9JVU7D19MakRtbHMrE_SdibHcFPRpunWtlQymi1VfPSdDdlPvTw4BXOdTC36emoJH471lubmYDqXE6Ly6FS1nSDCXdIHF2YlQqwA7LV/s320/IMG_20260907_115217904_HDR.jpg",
       "imageAlt": "Welcome to Big Tree Lodge",
       "excerpt": "It’s raining in Montana so I’ve not been able to ride the Sacred Trails. We’re staying in Glacier Park Lodge - alias Big Tree Lodge. It’s constructed on a framework of enormous trees, Douglas Firs, estimated to be 500-800 years old when they were felled, more than one hundred years ago. Big Tree Lodge is built on land purchased…",
       "status": "available",
@@ -56,20 +58,30 @@
         "Julia jones"
       ],
       "labels": [
+        "Belle da Costa Green",
+        "Blackfeet Nation",
+        "Elizabeth Strout",
         "Francis Wheen",
-        "Julia Jones"
+        "Glacier Park",
+        "Jonathan Raban",
+        "Julia Jones",
+        "Sara Paretsky",
+        "William Kent Krueger",
+        "Yang Shuang-zi"
       ],
-      "updated": "2026-09-09",
+      "updated": "2026-09-10",
       "sources": [
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
-      "mirroredAt": "2026-09-10T08:05:20.660Z",
+      "mirroredAt": "2026-09-11T11:25:25.641Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2913efa415fffbd47582c81114541037ab279592dc9ff6fe1211bf81eb97c084"
     },
     {
       "id": "3014348494295651356",
@@ -109,13 +121,15 @@
       "sources": [
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.666Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c62521ff9392ff010138aef3d573adb93ee6eeccf272247dfab8894207cf0743"
     },
     {
       "id": "5180793013970013880",
@@ -154,13 +168,15 @@
       "sources": [
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.661Z",
       "preservationStatus": "full",
       "display": false,
       "duplicateOf": "9008899061017597895",
-      "duplicateReason": "The article body is identical or near-identical to the canonical record."
+      "duplicateReason": "The article body is identical or near-identical to the canonical record.",
+      "revisionHash": "7624dd065542401408ab3b88369001d8546ad1afd9d019bc0dcbbf3ee140a9d2"
     },
     {
       "id": "9008899061017597895",
@@ -200,13 +216,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.663Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1cf5e731c0395af3ef74e1745e5b1064281026c4a38d7eb6a128c02fe633d05e"
     },
     {
       "id": "3313456338962213103",
@@ -245,13 +263,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.665Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "441154143812d009369c893f60e7e286481e1fb865f0cb86ec51876dd63c2b55"
     },
     {
       "id": "4708443451892533225",
@@ -291,13 +311,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.668Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a1dc0a9b66db60d0520c4745c441056c8d7b421c8b87b8a8daac8c7eded63597"
     },
     {
       "id": "7563185147203775862",
@@ -333,13 +355,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.671Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "efdde51dc8dedc8a98f5ed4af3ef51f1415b5a0b12a3cb31c71e3e3c4a1004dd"
     },
     {
       "id": "2292197549855801236",
@@ -381,13 +405,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.672Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "99c9a2067a61a28e535952af107b6f53d590f4e9286c7d507d6bc847f1d443fa"
     },
     {
       "id": "5648209653615809429",
@@ -426,13 +452,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.672Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "cedacee3a7c20501d9b2260058df9d1db852cbf9e186a7c7a65eacb9d61b9ffc"
     },
     {
       "id": "2350083219136426129",
@@ -468,13 +496,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.673Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ba0f36de3fa61b164308df3c760e4216729bd2d817cb1a85df85a5ba242c1487"
     },
     {
       "id": "2738060195063287579",
@@ -516,13 +546,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.677Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "64f1463fbcfe106c7495dacf51316d180e080e1d66b40593de95b6fd2bc422a4"
     },
     {
       "id": "2958588805752234715",
@@ -558,13 +590,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.676Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a8c7358e213faf4c59da4d4bb5af34cf08094849365f473dbcbc390b50941b45"
     },
     {
       "id": "5787662618676803275",
@@ -604,13 +638,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.678Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f93c96a809345ae0843eb14ad61d5b23c82f1768460a7abd53db992f5b271f03"
     },
     {
       "id": "3207902308633628937",
@@ -649,13 +685,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.679Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "13f48ed2fc54be8f721446da4f07ccba00ed8a840f253500f950a9ab343dd293"
     },
     {
       "id": "1345363424607563160",
@@ -693,13 +731,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.681Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "4a4896ef31d2c38bad5162195af4ad4758849cbbd8c6eb8b121735e5e6fe0246"
     },
     {
       "id": "7927600278683430963",
@@ -733,13 +773,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.681Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "79fc2c74ea05c0d78ef5faa9694356fed5400add50bbb0f7322b6ab66396e606"
     },
     {
       "id": "5280127274254027146",
@@ -774,13 +816,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.683Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9f5a7bd8778b29ba2e414c3b8982e3731450f38190b6ca4013a17d331b5f230b"
     },
     {
       "id": "3621356990297165797",
@@ -822,13 +866,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.685Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d23cb94513e0ee3e6a9e56688ae954f7cbb5ca5fbb3bf5ba7e377e0c4dde74e3"
     },
     {
       "id": "7170866144837055465",
@@ -865,13 +911,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.687Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "4b88e6f32a490213f22c1d428a8e8c945ba1fb14317ec505326f107d65fe894a"
     },
     {
       "id": "8792934302409309835",
@@ -909,13 +957,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.688Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "de5f73992107bd492173cc1d50d002f0ed099e8d867a484f2c37c2128a83bf91"
     },
     {
       "id": "4297536825168799263",
@@ -950,13 +1000,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.689Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "dc660526b115e6c8e08d326cdc19ca62872ea4957322020f429c3dfad918eef0"
     },
     {
       "id": "1742979067179360099",
@@ -991,13 +1043,15 @@
       "sources": [
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.691Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "76f46909bbde322e8f8636d7ae5f126a746dbeaa6e80d7d83bafa8507989a81d"
     },
     {
       "id": "4712406806785475529",
@@ -1040,13 +1094,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.691Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "69a8179c00d1456ddbef5209038466908b89931a78b693f2fef4e6f9fe7bd62f"
     },
     {
       "id": "1843126354345027048",
@@ -1087,13 +1143,15 @@
         "golden-duck-legacy",
         "blogger-label",
         "blogger-recent-author-scan",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.692Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f814a4a5cf867c03b4f479aaca55d8a1f271cf050f93c0465051698835fb0e20"
     },
     {
       "id": "8253342006411863019",
@@ -1130,13 +1188,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.693Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "351e52adc2160cd676d2f83dc6a86fb63f00687a24150305e804971a4adf38a5"
     },
     {
       "id": "1846904273513165874",
@@ -1171,13 +1231,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.695Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7480513d1df544bc6b3da60827cc0be3600c7845b1607522320eaa8724ced7b8"
     },
     {
       "id": "3430453657570405208",
@@ -1217,13 +1279,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.699Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ead5f12a555efa4ff3b410d82f8584579faaba37ec93e846b48de05839e2283b"
     },
     {
       "id": "8995422343417904059",
@@ -1261,13 +1325,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.697Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "3235a239ef21976eb79ceac1ec936f0fc71114ab729d7b087374bd9069cea623"
     },
     {
       "id": "5853067412280262236",
@@ -1303,13 +1369,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.699Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "679c35e2c179e39b4ee018d30c8293263808ea3d0134c978ad483f18f4bc69e5"
     },
     {
       "id": "2847572113360413554",
@@ -1349,13 +1417,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.701Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "df438a7f9176987c3b2344af3c0ff222a1136eaabe824264042b5499f6db41cf"
     },
     {
       "id": "1316404130053930333",
@@ -1391,13 +1461,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.702Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "5dcd34adfba3d3ce1fb59f4f130ca95d22bd62c2fd598eabea2c43316e874b84"
     },
     {
       "id": "1369473821348090240",
@@ -1432,13 +1504,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.703Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "76c5a76431f49b31617caa1a8af24f770fbe2cb7096e865400ffbfcabc208a71"
     },
     {
       "id": "5142475658408713933",
@@ -1476,13 +1550,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.704Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "476b1f592a9db62c2fd06aa13a6d020b5b73ada881c6cc1bf10e1fd107216adc"
     },
     {
       "id": "8690984678009334437",
@@ -1517,13 +1593,15 @@
       "updated": "2024-01-09",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.707Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "025da619c5a01f23953d5b194918c894e553c587bd5b91ccba60dfba2260f99a"
     },
     {
       "id": "4076748153154814883",
@@ -1559,13 +1637,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.707Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "769ec783bfba0de9dccd58e49cc6f08fd86441ace1214127eccd14f172c7bbfd"
     },
     {
       "id": "8813842591256181923",
@@ -1600,13 +1680,15 @@
       "updated": "2023-11-14",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.709Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "73c1ee80c468a7846b6479f507826b148f575699868cbe9e54b3cdd1f1879696"
     },
     {
       "id": "5218378611078458714",
@@ -1643,13 +1725,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.709Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "10b55ece75f91e990108617baf49a4624948242a474528e07b3b8944f7662a65"
     },
     {
       "id": "3915974157133962199",
@@ -1686,13 +1770,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.713Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7c8e46b3bc6941834c8da9066f6e6bf42968d6264f4b9e16c7a1d3465c42092d"
     },
     {
       "id": "5047910869647064172",
@@ -1733,13 +1819,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.715Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ce6fd45b03b2209230606b1bd7aea557b603fa0c85389a296713cdc9c59de391"
     },
     {
       "id": "7692862627478104418",
@@ -1777,13 +1865,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.715Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a418efeb4ca9214496cbc0c2de682b5aa46175eccf88aac929478297bda95857"
     },
     {
       "id": "8923792578937771449",
@@ -1822,13 +1912,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.718Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "842865aa9146612556f5f6876d6154cbd448029c0bda4dd4b7db31a16e42f484"
     },
     {
       "id": "3711552699724495442",
@@ -1868,13 +1960,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.719Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c40acc9fc4df626be5b01b9ee92c6bc2c3e096aa26647df61524483150fc9bbf"
     },
     {
       "id": "3453027180436415611",
@@ -1909,13 +2003,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.720Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "8e763ba39010840aa066985bf8fc73851818568d8ee240134045f54b79b59db7"
     },
     {
       "id": "7581954579374904601",
@@ -1955,13 +2051,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.720Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "e51ca80aa1295e9dcc9176b9254515bf6d13deb769ba3483a970746b8fb6e833"
     },
     {
       "id": "6012807436033037892",
@@ -1998,13 +2096,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.724Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d8fa400798fec7cd910466585f5827706c0cf02b25c2331b797d38d16c0aba9d"
     },
     {
       "id": "1928795980275976279",
@@ -2045,13 +2145,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.724Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "631891ef03beeaf4454d4e4fb3b5bd562df818141cdeb56cbc7bbd048299d8b0"
     },
     {
       "id": "1640713103569963781",
@@ -2094,13 +2196,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.723Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1f6b016a2974d6f77290fb4ff90a1f838096d40bde7546f9c5bd2f89dff134ed"
     },
     {
       "id": "6733555909023481436",
@@ -2143,13 +2247,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.725Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "4b8f32610ce3c38958dff995ad78ef945252c301480cc764f822fc3bf939b910"
     },
     {
       "id": "1861233164488903371",
@@ -2184,13 +2290,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.730Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6828936d5ca8d66d27eacbf2f5aae24e3f5a3c1779ece8ef6b9397911bb9afa4"
     },
     {
       "id": "5416903943083263993",
@@ -2226,13 +2334,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.728Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "86a5801ea2a74a93fda8d4484036b7fce3bea4f8bcb65a451e0c2e839c481dea"
     },
     {
       "id": "3173944740483689922",
@@ -2272,13 +2382,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.730Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "500590e2cb2f69d7f3281de08efc587b42cf40bff91b7aceb12250c671e085ce"
     },
     {
       "id": "736323729717625144",
@@ -2312,13 +2424,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.730Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6182085054cbbc474d82887b7e8d0b2cc93bd97c08d9c27d797f97625ab838e8"
     },
     {
       "id": "4206158450627604388",
@@ -2360,13 +2474,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.733Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "da209b8d421bdaa75cd94c0263afd0434481c6450bdb093d12405f07908b0c3b"
     },
     {
       "id": "723167729851851169",
@@ -2407,13 +2523,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.736Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "64d71ca15285645566097cac055bd5ff355c67d8c7640317de7d167d71d73540"
     },
     {
       "id": "4828078701713061599",
@@ -2448,13 +2566,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-targeted-lookup",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.736Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c736c1bf4b9b44de360e35313da803e10c0c3db8e58bd012a891336e0e88c623"
     },
     {
       "id": "2877482150824543082",
@@ -2492,13 +2612,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.736Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a0d8b729bff40a0c5445eb24a38cedc9019b61a332471ce129b3192d1f8e4c0d"
     },
     {
       "id": "127584888682335743",
@@ -2537,13 +2659,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.739Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "0e7b9aae48d1e1215de0196ebaaff2427cfe3ebe0e715ad21511c94cfb0f6f8e"
     },
     {
       "id": "1923331676771450408",
@@ -2578,13 +2702,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.740Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "8143007a9d50506e63808bf0a1b6835977a31bf0a8b867e467c9b3ec82199b56"
     },
     {
       "id": "3804206735154111903",
@@ -2625,13 +2751,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.744Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1645847fc7c467ca67b46b7814e8e8fe0d8c8c30204c82eea145912899653daa"
     },
     {
       "id": "5470216457702618003",
@@ -2667,13 +2795,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.741Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2cb85f40fdd1aab75e86b228544989512075afaf42c5ac4acf0d2557cde0ca67"
     },
     {
       "id": "2800366386012484542",
@@ -2709,13 +2839,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.743Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "34f3b3225b2c97126b3ce826f88b882ac2324922a5981942d6484c30e80c47bd"
     },
     {
       "id": "205574474837802390",
@@ -2755,13 +2887,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.745Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "3c9936d4fc6d8fab757e7763b356469b1c096cfbc7854493b433cd58e7e38943"
     },
     {
       "id": "4098765644485640300",
@@ -2802,13 +2936,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.747Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c2c7cf44c809b2d7bcda51096ee9bb6be4c39a72f62b7a44bc229bfbc79d888c"
     },
     {
       "id": "513535027260578336",
@@ -2846,13 +2982,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.749Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2ed3861d3d3823ad39f5eb6aa2bf680fa6c53d40b8ad15fe85923c13da193a47"
     },
     {
       "id": "8205757551281913978",
@@ -2894,13 +3032,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.751Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "133a165047baf797aa97495053a11eade33d1505b5358a3b0bea4a55ece393eb"
     },
     {
       "id": "3477576933198514268",
@@ -2932,13 +3072,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.751Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ffa334df360220defd6f4a76cc6fec2a5328f613f465a833954732ace7a092f9"
     },
     {
       "id": "4651401574246219137",
@@ -2969,13 +3111,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.753Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d28374a3d3a43f18ac75d86e14eede2bf1eeea086e9d47a418dfe43060b20ece"
     },
     {
       "id": "1838334420055055390",
@@ -3010,13 +3154,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.753Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b897f162d7f9bbd6511186d330e28d2d84a7f6857a770464098bc97d732ec216"
     },
     {
       "id": "6815536916225325156",
@@ -3048,13 +3194,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.755Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2323313d4ed37faae469e8368577c7ddaada38a07fc766fbaed46170bb3c3dd9"
     },
     {
       "id": "3267015176739334763",
@@ -3088,13 +3236,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.755Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f71d7bae6e2493373bf3e3b3a80258e1aeb87864eb55b92890261b6fd21df35f"
     },
     {
       "id": "8369626527173719559",
@@ -3134,13 +3284,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.758Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6ce53e3b82cabb2d054f807670c52a6e60d318b6b88c120b07845247c1b2d3d9"
     },
     {
       "id": "1192382662410286225",
@@ -3180,13 +3332,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.760Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "5053901f8e033fc18c3d64226248b9ea05df9fc79acee3123d5a19cb1690710e"
     },
     {
       "id": "3808122461909503277",
@@ -3228,13 +3382,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.762Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2d7cf2724d9b3190850cde8a1a71456efb35d009eaed9a08193a30ede150e82b"
     },
     {
       "id": "7323846914180320516",
@@ -3271,13 +3427,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.761Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9cd103636127770235090467e4d438275c5b86c80f1bdb10e7001e7a47ddab4a"
     },
     {
       "id": "6642741932529441037",
@@ -3317,13 +3475,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.763Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ee6e9198b1739049fb417e66312334762aa72c2486833b43942567ce3890c216"
     },
     {
       "id": "2875566195246054753",
@@ -3354,13 +3514,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.764Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2360422c44ec468ec38e69603e12a44110758142b4ce6bc3b02d71ec6e845116"
     },
     {
       "id": "687346252124158923",
@@ -3392,13 +3554,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.767Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "309bb8a5867abe726fe5d80f3456a9820b082a00f68ce28c698df3b94c0dca13"
     },
     {
       "id": "7197257308781502610",
@@ -3436,13 +3600,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.769Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9a228f45a516cc92b7476ba6807e4c147c8165a5a3a465a6a07a3b3938c5bcac"
     },
     {
       "id": "https://authorselectric.blogspot.com/2020/06/till-death-by-julia-jones.html",
@@ -3469,13 +3635,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.768Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f842f704fa9eed58c6a99536f4083690a9368cc7093283e368e61c5e1481478b"
     },
     {
       "id": "2143603293727504436",
@@ -3512,13 +3680,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.771Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d818f41acc447db7f116dc422bc08cbb377c9f83236714e83f41bcb828c0d76b"
     },
     {
       "id": "1834705332254770196",
@@ -3554,13 +3724,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.773Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "df306e01b67b22fa265bc119ea0e394dc38049d1f20b2ecbc8c95e9cc8b61051"
     },
     {
       "id": "2244101796975142605",
@@ -3597,13 +3769,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.773Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a2256d1da341bb0d345d1b319722d79e7523f9091988ecd499794c6cad905833"
     },
     {
       "id": "1759397929513175683",
@@ -3645,13 +3819,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.775Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "285a0b402b8c11076d636f3faefae22955f0e9c56d4da30aff8f0becf599349a"
     },
     {
       "id": "1440448722089444014",
@@ -3691,13 +3867,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.776Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "84fe7e6199c4e1c68da8fe9ce11f272c91d85fe84b07fe6e1088eab0b2752954"
     },
     {
       "id": "119195906986996491",
@@ -3734,13 +3912,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.779Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "da23a9de2c58f1dfb998e53c698386578319f3d86c872e73630ddff037a6972d"
     },
     {
       "id": "67626684247871452",
@@ -3774,13 +3954,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.780Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f2f0f8528230b4f68a761ee6cd0acad32c204a39717ebef9debfb065216b0140"
     },
     {
       "id": "6967278318807101987",
@@ -3820,13 +4002,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.781Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1a8eef61c8b8fe4e620ca9caf729da17effebd6da05d6d807f9b9544175067e5"
     },
     {
       "id": "3460203772188768907",
@@ -3862,13 +4046,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.784Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "af93a4734264731f03f6e26984bf941be560c9c3ee805c5eb9fe3ed30fbf8316"
     },
     {
       "id": "https://authorselectric.blogspot.com/2019/08/that-festival-feeling-by-julia-jones.html",
@@ -3895,13 +4081,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.786Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f10853f99ccc50046303f3e92968508b13098756f39bfcc746f335330da35144"
     },
     {
       "id": "8887049703898705340",
@@ -3939,13 +4127,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.786Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "de2ee6b4e3883ae6ac627c5a0839ef192f0c1e9d29fc43e26013c02ee3fd9b48"
     },
     {
       "id": "5293483858396043591",
@@ -3979,13 +4169,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.788Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "4e8be3935b76481c9cde3cca0ad2996b681f4c7e8d023bdabd51cc4cdfd92b83"
     },
     {
       "id": "6973861511225548298",
@@ -4026,13 +4218,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.790Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6e05c40dbd6e9c9d0e8bb919826abc77d25f2434e70f0c412d9d42d9bd992032"
     },
     {
       "id": "6552460338329467250",
@@ -4072,13 +4266,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.794Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "23e55fd19fc5bc7bab6a94a84019069ad46c08a9fbc7977e5ea4f026db48dbb2"
     },
     {
       "id": "5062136443656509904",
@@ -4119,13 +4315,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.797Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "82579251a2479283c2446b873f4a0ab22bc1a9091da94df9114ef16689514b5f"
     },
     {
       "id": "3962956597495019589",
@@ -4165,13 +4363,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.797Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b02d7c2f3c4940deaaa6a85c8427efdf1ba886730667398dbd482fe790d45f70"
     },
     {
       "id": "1365642791690584602",
@@ -4210,13 +4410,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.804Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6a12c5759d78d76d1cc31e818cf772439b91f3675bfe72effb91c9dab171d92f"
     },
     {
       "id": "1238703931009978334",
@@ -4256,13 +4458,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.808Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b596563e60fe2d0e1a55567e9a57ee0b49a4523f797156d5150a94d794c3b45e"
     },
     {
       "id": "1725461837615168804",
@@ -4297,13 +4501,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.809Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "29cb2f8cc8d31341229e0edcb00f7909aa4d63c1c98b05777a7de93172ca754d"
     },
     {
       "id": "1963449361479817255",
@@ -4339,13 +4545,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.809Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "079470ad7bee8341afc1ed3d1da930fccac7cf7ea5e2a8781863a045adfa6af2"
     },
     {
       "id": "2327721078482822092",
@@ -4379,13 +4587,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.809Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a0ccd9195e7f3a27293dda15f79dc2d237d9f6a3ceb4b1ddd2dc2b5cf57cdbb0"
     },
     {
       "id": "9147150433167333109",
@@ -4420,13 +4630,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.815Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "71b1417fd05ee0c1630396a62ccde405486d107def5ac304090d11cdbfc62304"
     },
     {
       "id": "6516548551254355411",
@@ -4461,13 +4673,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.815Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "75cc52c8f74a5af60b5aba2c23c39ae5f505eb7ed7b1a62595a4763bafbc1ff3"
     },
     {
       "id": "396624927816682326",
@@ -4502,13 +4716,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:25.120Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "808976ca435a823c365194223dee6a051488e4827dba53f11e61ce79c044dda6"
     },
     {
       "id": "7530969994512249449",
@@ -4542,13 +4758,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.816Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "581ada8c7aa2fe23f74a0a10de0e7b89ec75afb5c6ad22c3b3623756fd9f45d1"
     },
     {
       "id": "7938886727450727229",
@@ -4582,13 +4800,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.825Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9fae9f64227d856a120cdf766af41ccc9848223aa252ad8eef3dd1ac7eb2c420"
     },
     {
       "id": "1282906608978264520",
@@ -4620,13 +4840,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.819Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "0e949613c4551577fb97e32c59c4d4e79c16046925495107ee13f8b16a5811bf"
     },
     {
       "id": "634452506016613382",
@@ -4662,13 +4884,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.819Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "3c377f0099c5aeddf1a9d8e86bf8bdfe63e3c4a63f579cca1b59041d5039c19e"
     },
     {
       "id": "1953234841529056010",
@@ -4701,13 +4925,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.826Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "509b397b6a5c8d89025803a96f1adb099e559afc96e02c511155cc43d81fd536"
     },
     {
       "id": "5427831622349454905",
@@ -4739,13 +4965,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.825Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "28efc9a56221f5101da1ee50f6105e221b6d1b76eccf0718680e1a85b5fe3aeb"
     },
     {
       "id": "6953246094464652543",
@@ -4784,13 +5012,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.830Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "23cc6fd2d2e757a8e16c41e7ed29595ab41e096f513aea297952ff04c13af444"
     },
     {
       "id": "7733621200173391390",
@@ -4832,13 +5062,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.829Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d77d897ec46f33a6fd67072ca0db8fc8c3c76a936fbc9c003953983feaffa47b"
     },
     {
       "id": "6001866560145312223",
@@ -4875,13 +5107,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.830Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "8045216afc3b467f1dfb1b4e205fdd110cc73ff42df11c124d055f39d2b75d9b"
     },
     {
       "id": "8634996615243895015",
@@ -4919,13 +5153,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.833Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b74517706104b397a1e6fb473e9fed3e61cb6d7c5d9418d616f60501b9c33489"
     },
     {
       "id": "1825935272591690183",
@@ -4964,13 +5200,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.834Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "35afc8fbcc72d9288ec49a594d39763aa960fd0c5f5a8e645a642ea1b2491cef"
     },
     {
       "id": "1371280127047846321",
@@ -5002,13 +5240,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.832Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "3400ac0be045050d5597214bad41bc8de94d7a0b01c37d6a0a9dfefd7de6f549"
     },
     {
       "id": "1069808007280936960",
@@ -5045,13 +5285,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.836Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "297a115ab14280183c8df662f4dd0ba9d3f29dd1f6d0e3edba6b5e9c8da0cca4"
     },
     {
       "id": "1587680299649895892",
@@ -5086,13 +5328,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.836Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "acd8b2d5fdb2b95fcd9d6f98f848adb32f15c0c9afd5a0f5935308b40fd00410"
     },
     {
       "id": "912621277691238230",
@@ -5129,13 +5373,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.838Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "5729dff818c7ee00746a5ed0aa1a896c7c0d46a79cefc7215eb730585dacf7cf"
     },
     {
       "id": "6010152231341158747",
@@ -5172,13 +5418,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.839Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d0c5219c6f2d44486adb78b7685d9f69d1ccdf30fd6a9bcd8cedac8f68bde7eb"
     },
     {
       "id": "5339203517428887363",
@@ -5212,13 +5460,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.839Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "54bdf92ab3c72031151244e6c315e3a9fc20e024ae07b5d85304093a99eaa9bb"
     },
     {
       "id": "187614136299519281",
@@ -5255,13 +5505,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.841Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "91068fd4c2f21835f55bd5dc9b9a0e1ca8326cbedb647d51172f83ff7e873944"
     },
     {
       "id": "7463002280364789064",
@@ -5294,13 +5546,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.842Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "2272f484a5536fbc7d330ed68d87898dcf9143568a49100229a0ab32084f7c04"
     },
     {
       "id": "1037953971379154036",
@@ -5334,13 +5588,15 @@
       "updated": "2016-10-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.842Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d0ea7416a0b35b5c21a2f2e026ecf9abfd777eac5ae9e5ab036a28eada08c828"
     },
     {
       "id": "8166765181543208039",
@@ -5375,13 +5631,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.845Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "925bfd438c7a6d4ee34c4160bbb304e485a55cfb7dd0405f0ccc81b396d904ac"
     },
     {
       "id": "2796195854745019655",
@@ -5411,13 +5669,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.844Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "238ee4e79b3ff401f23f62619351b1e1cf04157b89f68d68d09f0d502b6484ed"
     },
     {
       "id": "1250613083955635149",
@@ -5458,13 +5718,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.847Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "dc1567dc6d0e872aca2b19ea858fffcebda20c9246d3ec42e0ecc5d9ed3b1052"
     },
     {
       "id": "5286904653001024182",
@@ -5496,13 +5758,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.847Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6c1f87ae7d78dfc4c27fdf5f65d16706e57b409edd67e0d8d6b0226e08ef7086"
     },
     {
       "id": "9187851998998489464",
@@ -5540,13 +5804,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.848Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ae36ce0f6eedff96b22954dee28b62e746cd92f9457a162b2f045e9d00d4b233"
     },
     {
       "id": "6689383689644430906",
@@ -5581,13 +5847,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.852Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7c869dfce420da2682a9bf4a778f79c21d7fce01438115d068850a0aa10ff91d"
     },
     {
       "id": "7568140172409255545",
@@ -5623,13 +5891,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.852Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "93255c75747fad73a292b5624f921367489e6378def308e6e3fc0a6626547ad4"
     },
     {
       "id": "641074413522341016",
@@ -5665,13 +5935,15 @@
       "updated": "2016-03-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.852Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ceb1d70f95ff4a75d29aca73fd76d6ae6a071cde5e17f2dec7017669bb802613"
     },
     {
       "id": "6253242850821338729",
@@ -5710,13 +5982,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.854Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f5ae0b2422723db521b8aa1b3ce659277e78c0ba8b6a3c908053aa9f7bb4f344"
     },
     {
       "id": "4458237909227674345",
@@ -5751,13 +6025,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.855Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "057f37ce5182e1ad80661d0f8255884e465f374af79282f34bdb420d4061f145"
     },
     {
       "id": "3137300288024531898",
@@ -5794,13 +6070,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.856Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b067a7394f66bbdbf2ed148755b9f2bb20809d32934ca88e8d3a6a0a31ea3e1d"
     },
     {
       "id": "4486434646027757004",
@@ -5838,13 +6116,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.857Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "02ba98790ff77ee718181d2f827a07e63679cce09c39f46bc6cd13ed14212277"
     },
     {
       "id": "967232588025150976",
@@ -5878,13 +6158,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.859Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "e527c62309ea3b8d55cfde97752dbdeb38f108bc7cf745cf8d795d5ebe90b8cb"
     },
     {
       "id": "1231378389981615623",
@@ -5919,13 +6201,15 @@
       "updated": "2015-10-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.859Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ee599b46dbed1baa182aab8e5c8f453166f73d548dc524a342d0bea10d98fe01"
     },
     {
       "id": "7633200882133506435",
@@ -5964,13 +6248,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.863Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1f24f0bf1831148b21a647df08834b7e5e3a8ad5ee1b2d0d798be951be7a343b"
     },
     {
       "id": "2641366950465767783",
@@ -6006,13 +6292,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.864Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "defe6b718a17df82264cd5e931f1cbcf486ad0672d3fd66f4283268673d6737d"
     },
     {
       "id": "1111968649532489855",
@@ -6044,13 +6332,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.865Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "61aad0e128972314961cedfc90c7d71125dbef3bf589e90f5608afd07c5dddbf"
     },
     {
       "id": "7333435097680009566",
@@ -6087,13 +6377,15 @@
       "updated": "2015-07-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.866Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "162bcb8d6a8fb14c979b2a8719dee72337a1c7b0e582e3ea069846729961d3a9"
     },
     {
       "id": "6779137242067799206",
@@ -6128,13 +6420,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.868Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7dc509b755d4fd7e32bc452c7b30d45544927c7ec4a1bf459924917f51ab54f1"
     },
     {
       "id": "1054295285328131359",
@@ -6169,13 +6463,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.869Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9e21e5ba1a44e41e67ab145b372c9832c6da6f80173c6d08e945f88c7474fdee"
     },
     {
       "id": "8745224418212591689",
@@ -6211,13 +6507,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.870Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "077f402a650f606cfb09baaa1d774905bbdabe460419264c881d305c053b9dd5"
     },
     {
       "id": "7646812999844339911",
@@ -6249,13 +6547,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.871Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1146ef8e9c9ceaf5eb1c8b632dacca0f6e814bc9f18c4cdeaf85bfa0c1f809ad"
     },
     {
       "id": "5773036880897149557",
@@ -6288,13 +6588,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.872Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "eb19356716775c1aa65397c529f8ca31d6bd6e6d4272fa383219c103c3f29731"
     },
     {
       "id": "6060417377259898833",
@@ -6328,13 +6630,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.873Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f646ad3a0737193026164965070bad74b3a3fac51c2ad572748c4f47bd1099aa"
     },
     {
       "id": "7670496612018869651",
@@ -6372,13 +6676,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.874Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b4c071cebbe6772bb200e15b257dd5e2b8a1342e29fd4293590b63b3f4d90cb7"
     },
     {
       "id": "1147742316626718568",
@@ -6416,13 +6722,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.876Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b0b37f6eb828d2cdcf9447abf127220fc7431494f69d9e4b1c6f432faa4bb1e4"
     },
     {
       "id": "2021531642355111745",
@@ -6459,13 +6767,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.877Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c518d608bf2b33abd25f717a0c0a7c303f9b602eed076c79f45594fcd2dd0f97"
     },
     {
       "id": "894484118511921859",
@@ -6502,13 +6812,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.878Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "86dd4b64c50bd213c9e56ccf121f8901595898cc8f87edec0631654a4fc82694"
     },
     {
       "id": "5696643984383839205",
@@ -6546,13 +6858,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.881Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "c0126d2add33864b5a2077197b668c73c12b7c5c03e367ba587ca22ace0c3bd6"
     },
     {
       "id": "8696037661437269234",
@@ -6591,13 +6905,15 @@
       "updated": "2014-07-22",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.881Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1b2fb08fc1b78d06ae156bb47d594f1725e2375f5e8a8f738d8e66636f0bd7b1"
     },
     {
       "id": "5107232610481256902",
@@ -6631,13 +6947,15 @@
       "updated": "2014-07-11",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.884Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "fecd2e1cabeed53a274555b0aee3f5a80ed789513ca49436947d6913e88dc95b"
     },
     {
       "id": "6900536150062043959",
@@ -6676,13 +6994,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.885Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "cea6746e605d454ef8774ad25ccc62dd19ee20d86efe22a929dcb8ffde569e22"
     },
     {
       "id": "2049960697759382390",
@@ -6720,13 +7040,15 @@
       "updated": "2014-06-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.885Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "421d29a449b41cbcffe06c94e9fe05e259f55c357459869cbd4f2fdc49cc7727"
     },
     {
       "id": "6679372821576692053",
@@ -6761,13 +7083,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.887Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "f847a0ae5dc5f036e66921aab5c95469ba3e2909041e9f8d9cb9d4b4dc583a89"
     },
     {
       "id": "8836229751160149369",
@@ -6805,13 +7129,15 @@
       "updated": "2014-05-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.888Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7f4727b7ed8e8ac5822ec4947c6a39b5dca2e4142c67cdaf2a06e213e28ad781"
     },
     {
       "id": "2417217887890289313",
@@ -6845,13 +7171,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.889Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "7f9a8e1d72d1cd6529c6c5dc70be742d134a599a7af032ccf17b8eddc9a43faa"
     },
     {
       "id": "2688990658527234637",
@@ -6887,13 +7215,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.890Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "bd6a0d9957b3916ddaa5d6d5a9719c19e23058d3f9901b9a3a5c20eb8bc803ab"
     },
     {
       "id": "3726811695099111238",
@@ -6930,13 +7260,15 @@
       "updated": "2014-02-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.891Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1bd5f953bac205609b8a60fbb6f527acf1ef3ff903760f475a6f44f22710de4f"
     },
     {
       "id": "4639219557029525224",
@@ -6969,13 +7301,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.894Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "18186034e0fdaa601fe3613e8fb1d6f14df0994ba8ca0702cd0a1b8846316829"
     },
     {
       "id": "https://authorselectric.blogspot.com/2014/03/part-four-of-trilogy-jan-needle.html",
@@ -7002,13 +7336,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.893Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1b0145baf7f74f6ba60e4ec43de125249411035dcf4bc66d204e987c1c8f2739"
     },
     {
       "id": "https://authorselectric.blogspot.com/2014/01/tales-from-marshes.html",
@@ -7035,13 +7371,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.895Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "02381521772ac65439558967823d6d3af370737af37eb50299c1a61e65ed10fb"
     },
     {
       "id": "7538294638377611699",
@@ -7080,13 +7418,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.901Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "1e4db3cffee077ecd0cf15eff843d583bf8d7c6f2f2e5814574cd4393594b692"
     },
     {
       "id": "1509333863861915102",
@@ -7122,13 +7462,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.900Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "123aaffd6413ef0023450faa08780c9fe278b568dae4e80ff124d6402e736544"
     },
     {
       "id": "9090481398874771827",
@@ -7165,13 +7507,15 @@
       "updated": "2013-10-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.900Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9f82a789b2540a5f6a7a7a3570cd91d8f03109360e36c9798c2ee8fee30d5d0c"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/10/scary-stories-but-this-time-its-writer.html",
@@ -7198,13 +7542,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.903Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "fe9886f01ccc7ae59855cfcf4ab1bc4afeaa380e98a0f33ea76e07fafffcd876"
     },
     {
       "id": "6521570398196806292",
@@ -7241,13 +7587,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.903Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "0680dc38ac518b691e95149ccbcf186207f89fa789ecc386b78e17b994d3f29e"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/08/just-add-children-by-julia-jones.html",
@@ -7274,13 +7622,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.904Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "95c8f1c6e3a381d84da6a327663e71e02514c31abbba5468e7c35caba181cd72"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/07/why-do-you-flap-your-hands-in-front-of.html",
@@ -7307,13 +7657,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.906Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "9684a323fedb58cd4c311ed3e05eed06f468c834f961cd05021ab993c1b370b9"
     },
     {
       "id": "6563660058566809537",
@@ -7349,13 +7701,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.906Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "055605798357c9f306b31c4eaea17e71e3288c8f498833f9dbc2ae6bccdc3a5c"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/05/legacy-publishing-by-julia-jones.html",
@@ -7382,13 +7736,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.907Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "4ec979862f2e60f9febb89f0102b97c718c117b97f16f6c6699bea4101cc5b87"
     },
     {
       "id": "4583123727939001142",
@@ -7422,13 +7778,15 @@
       "updated": "2013-04-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.910Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "39b04f81a871d735bb07085f5b3176fcc63215d1964c4af0c288b3bfebca947b"
     },
     {
       "id": "4179427053563095453",
@@ -7466,13 +7824,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.910Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "27833e0c164e9fa7a0c48625097703e0de6e21e489c7edb135fc484e76bbf23a"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/03/arcadia-on-east-coast-of-england-by.html",
@@ -7499,13 +7859,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.912Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "abd15f1911e8ee55470769c978f985c644f35713042485611071664dcafea3a2"
     },
     {
       "id": "7294984056014322824",
@@ -7544,13 +7906,15 @@
       "updated": "2013-02-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.914Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "25ff0ed9a6e74d0c6b6825acbbd67236de92714beae68a2ba715fe1768101f8c"
     },
     {
       "id": "9070270201007563047",
@@ -7586,13 +7950,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.914Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "cafc135ce2d07f99f3ca9e389f527e73c72076e02c0b34ebc1614593c1fb08af"
     },
     {
       "id": "https://authorselectric.blogspot.com/2013/01/comparing-accounts-by-julia-jones_9.html",
@@ -7619,13 +7985,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.916Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "bd4024f11e9f53b69e48b1b3f7307b3af8b7d41654cf9549bd9a948e1972a4cc"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/12/the-years-dying-2012-by-julia-jones.html",
@@ -7652,13 +8020,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.917Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a171a27433aa977788de6c1580bbbdcbd06df64ebbd591a35549e34d0d3174f1"
     },
     {
       "id": "missing-2012-11-sparkles",
@@ -7688,7 +8058,8 @@
       "mirroredAt": "2026-09-10T08:05:20.916Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": ""
     },
     {
       "id": "3525404209672723242",
@@ -7722,13 +8093,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.919Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "89993b7da3ca701a107cd0e059c48a7ba5750fdcb0b16d9acf1f8c09c80689cd"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/09/this-book-is-for-by-julia-jones.html",
@@ -7755,13 +8128,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.920Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "60241c06f196a06a8e22c54d3d4623588a2bd33edc689cedf249d256c8eff040"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/08/should-i-stop-reading-by-julia-jones.html",
@@ -7788,13 +8163,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.920Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "955cffb408406133a814e6e5a221069d058c4676ff4a63a2d515165f876504a0"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/07/duck-hippo-and-goblin-by-julia-jones.html",
@@ -7821,13 +8198,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.923Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "d94ec949b3706aa0891463451926579d7f90ff50f044aaef0ab97b0dca631b8a"
     },
     {
       "id": "3962763505071418977",
@@ -7870,13 +8249,15 @@
       "updated": "2012-06-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.923Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "8151d2d805e9daf576423d908a5b3e9c532fe7f3de4cab45eac94f2d177b0268"
     },
     {
       "id": "2167173742936159208",
@@ -7912,13 +8293,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.923Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "b18c126d396ef15104eb01c63dd6df992aa4a86ec362d01e507eacab7798eb19"
     },
     {
       "id": "5669624431608181538",
@@ -7953,13 +8336,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.926Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "dbc05bef0f786f17169e2af3eef6309fc5ba3c9e617c8ff42728730687e5e855"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/04/he-wrote-all-his-life-he-wrote-for_09.html",
@@ -7986,13 +8371,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.926Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "6a9a3e500c194faeb97438f9a8aaaa2868b4476bfc623be3d20fdd99ab3a02d4"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/03/hits-and-niches-by-julia-jones.html",
@@ -8019,13 +8406,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.926Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "ec2812e543c4a151eff9d5eb4a8647f644f94db4078aa58b85b0a9eb06519355"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/02/making-e-books-visible-belated-happy.html",
@@ -8052,13 +8441,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.929Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "a871a9a054c8f807be288db67c4d1d5e7a1a9d8f651d262d819c1f35119593c6"
     },
     {
       "id": "https://authorselectric.blogspot.com/2012/01/seasons-greetings-from-yougov.html",
@@ -8085,13 +8476,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.929Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "032470845a591ad9cfd224f60a088697ed86e47813aa88c6a61b87ef3467b6f2"
     },
     {
       "id": "https://authorselectric.blogspot.com/2011/12/where-to-begin-by-julia-jones.html",
@@ -8118,13 +8511,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.929Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "782f06dcc2848ba2e1b850b7800784cb419dc8d1cfd73af875d912ca1bea246d"
     },
     {
       "id": "4880241343701651725",
@@ -8164,13 +8559,15 @@
       "updated": "2011-11-15",
       "sources": [
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.932Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "406edf1a106ab5926181a749774444bc1a1e88c48dabe53e232ece624423c52c"
     },
     {
       "id": "https://authorselectric.blogspot.com/2011/11/what-would-e-rep-look-like-byjulia.html",
@@ -8197,13 +8594,15 @@
       "sources": [
         "golden-duck-legacy",
         "existing-archive",
-        "blogger-page-scrape"
+        "blogger-page-scrape",
+        "preserved-raw-fallback"
       ],
       "preservationStatus": "full",
       "mirroredAt": "2026-09-10T08:05:20.932Z",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "382f5cc4afa8aa9e4aa3d892f69c68e9a6cc7565520e2afff4672fb9fa23a1e8"
     },
     {
       "id": "3233811118711209937",
@@ -8238,13 +8637,15 @@
       "sources": [
         "golden-duck-legacy",
         "blogger-label",
-        "existing-archive"
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "mirroredAt": "2026-09-10T08:05:20.932Z",
       "preservationStatus": "full",
       "display": true,
       "duplicateOf": "",
-      "duplicateReason": ""
+      "duplicateReason": "",
+      "revisionHash": "5a2796e3f737d2e63d23e8f5c2fb012c6bcdf19cfd084341cb2a6cd6d3c15cc4"
     }
   ],
   "publicPostCount": 195

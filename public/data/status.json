@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "state": "healthy-no-change",
-  "checkedAt": "2026-09-10T08:05:09.693Z",
+  "state": "updated",
+  "checkedAt": "2026-09-11T11:25:20.750Z",
   "previousPostCount": 196,
   "capturedPostCount": 196,
   "postCount": 195,
@@ -17,7 +17,9 @@
   "sources": {
     "goldenDuckLegacy": {
       "ok": true,
-      "count": 9
+      "count": 0,
+      "skipped": true,
+      "bootstrapOnly": true
     },
     "bloggerLabel": {
       "ok": true,
