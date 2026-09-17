@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "state": "healthy-no-change",
-  "checkedAt": "2026-09-16T22:12:57.764Z",
+  "checkedAt": "2026-09-17T01:28:24.195Z",
   "previousPostCount": 196,
   "capturedPostCount": 196,
   "postCount": 195,
@@ -30,7 +30,7 @@
     },
     "recentAuthorScan": {
       "ok": true,
-      "count": 23,
+      "count": 22,
       "pages": 3
     }
   }
