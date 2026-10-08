@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T17:53:35.510Z",
+  "generatedAt": "2026-10-08T23:45:42.367Z",
   "archiveState": "last-known-good",
-  "postCount": 196,
-  "capturedPostCount": 196,
+  "postCount": 197,
+  "capturedPostCount": 197,
   "duplicateCount": 1,
-  "fullCopyCount": 195,
+  "fullCopyCount": 196,
   "metadataOnlyCount": 1,
-  "newestPostDate": "2026-09-09",
+  "newestPostDate": "2026-10-09",
   "goldenDuckArchiveUrl": "https://golden-duck.co.uk/julia-ae-archive",
   "sourceBlogUrl": "https://authorselectric.blogspot.com",
   "downloadUrl": "https://github.com/lightwall-sys/golden-duck-ae-archive/releases/latest/download/julia-jones-authors-electric-archive.zip",
   "warnings": [
     "Some posts have no recoverable image. Their archive records were retained.",
     "At least one historical post was already unavailable before this archive was created.",
-    "Could not mirror image for “The Domesday Book of John's Campaign pledges 2015-2018”: image https://lh5.googleusercontent.com/AfwfVPotyY6uJyUaaEo-purLPj1N676Ekw1XRZVcb_kGnQ7uSxZt224VTQiM2pAc6_3syCdmUrQTiOdttG7E4DnbZ8XcPBFT1knE11ur57Dv1U0hdMQcMoKV7nRAxJYhOHIsHwDG returned HTTP 404"
+    "Could not mirror image for “The Domesday Book of John's Campaign pledges 2015-2018”: image https://lh5.googleusercontent.com/AfwfVPotyY6uJyUaaEo-purLPj1N676Ekw1XRZVcb_kGnQ7uSxZt224VTQiM2pAc6_3syCdmUrQTiOdttG7E4DnbZ8XcPBFT1knE11ur57Dv1U0hdMQcMoKV7nRAxJYhOHIsHwDG returned HTTP 404",
+    "Could not mirror image for “Seen from the Water”: image https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGhVwaCscYsQ2nZt7Wjb7Lt0tR8XmQcblnwfIE-89880zCyyH04ztW_7XYe_sPmnBotwmBpPZKJM0W6Q3Gnux50oPZHiVd6NlBrjHSvwkqqlp5nrQIzOrnkIB-y8hyFT-5IrkzO0ONC3sTzux0-eJuSALdu6bY-8QjQOYik2RzP01sOtLuYMrA1eA5xoyC/w150-h200/IMG_20260912_105255378_HDR.jpg returned HTTP 404"
   ],
   "sources": {
     "goldenDuckLegacy": {
@@ -25,18 +26,59 @@
     },
     "bloggerLabel": {
       "ok": true,
-      "count": 174,
+      "count": 175,
       "pages": 2,
-      "reportedTotal": 174,
+      "reportedTotal": 175,
       "complete": true
     },
     "recentAuthorScan": {
       "ok": true,
-      "count": 22,
+      "count": 23,
       "pages": 3
     }
   },
   "posts": [
+    {
+      "id": "7967723129432485959",
+      "title": "Seen from the Water",
+      "originalTitle": "Seen from the Water",
+      "published": "2026-10-09",
+      "year": 2026,
+      "month": 10,
+      "day": 9,
+      "url": "https://authorselectric.blogspot.com/2026/10/seen-from-water.html",
+      "originalUrl": "https://authorselectric.blogspot.com/2026/10/seen-from-water.html",
+      "archiveUrl": "https://lightwall-sys.github.io/golden-duck-ae-archive/posts/2026/10/seen-from-water/",
+      "image": "https://lightwall-sys.github.io/golden-duck-ae-archive/media/7967723129432485959/a5a034006d7d3981b1e8.jpg",
+      "originalImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjX3mziiYWvai3z7LbxTcTqVRXhPZerl5FYQORqjTFBYV3QWnE1yule9OL7JcXYGtR4iNkgsMKA_pc9-NWWi218MC6Xi0u3s7PjsOiPLYxU-SwWCfKNCBLMorN_W3PfhWJrHhHsWY9kc3AMda76H6rLrI-yWp-euSF7HHhHYjiDXbyWdtwGFTAdAcl8S9a/w127-h200/9781899262649.jpg",
+      "imageAlt": "Seen from the Water",
+      "excerpt": "Our holiday in America began in New York. I knew that the place I most wanted to see was the Hudson River. I’d read and re-read the last chapters of My Ship is So Small, Ann Davison’s funny and moving account of her arrival in Felicity Ann and the end of their record-setting voyage together. Desperate to find somewhere,…",
+      "status": "available",
+      "note": "",
+      "authors": [
+        "julia jones"
+      ],
+      "labels": [
+        "Ann Davison. Nicolette Milnes-Walker",
+        "Clare Francis",
+        "Francis Wheen",
+        "Julia Jones",
+        "My Ship is So Small",
+        "Port Townsend Wooden Boat Festival",
+        "Stars to Steer By"
+      ],
+      "updated": "2026-10-09",
+      "sources": [
+        "blogger-label",
+        "blogger-recent-author-scan"
+      ],
+      "revisionHash": "fed4a44393cd5da9d858b7d429db6955d19bee561a158fe4cab58439ea74d5d8",
+      "preservationStatus": "full",
+      "mirroredAt": "2026-10-08T23:46:02.191Z",
+      "display": true,
+      "duplicateOf": "",
+      "duplicateReason": ""
+    },
     {
       "id": "6091472654001519608",
       "title": "Welcome to Big Tree Lodge",
@@ -8648,5 +8690,5 @@
       "revisionHash": "5a2796e3f737d2e63d23e8f5c2fb012c6bcdf19cfd084341cb2a6cd6d3c15cc4"
     }
   ],
-  "publicPostCount": 195
+  "publicPostCount": 196
 }
