@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T23:45:42.367Z",
+  "generatedAt": "2026-10-09T10:38:48.271Z",
   "archiveState": "last-known-good",
   "postCount": 197,
   "capturedPostCount": 197,
@@ -14,8 +14,7 @@
   "warnings": [
     "Some posts have no recoverable image. Their archive records were retained.",
     "At least one historical post was already unavailable before this archive was created.",
-    "Could not mirror image for “The Domesday Book of John's Campaign pledges 2015-2018”: image https://lh5.googleusercontent.com/AfwfVPotyY6uJyUaaEo-purLPj1N676Ekw1XRZVcb_kGnQ7uSxZt224VTQiM2pAc6_3syCdmUrQTiOdttG7E4DnbZ8XcPBFT1knE11ur57Dv1U0hdMQcMoKV7nRAxJYhOHIsHwDG returned HTTP 404",
-    "Could not mirror image for “Seen from the Water”: image https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGhVwaCscYsQ2nZt7Wjb7Lt0tR8XmQcblnwfIE-89880zCyyH04ztW_7XYe_sPmnBotwmBpPZKJM0W6Q3Gnux50oPZHiVd6NlBrjHSvwkqqlp5nrQIzOrnkIB-y8hyFT-5IrkzO0ONC3sTzux0-eJuSALdu6bY-8QjQOYik2RzP01sOtLuYMrA1eA5xoyC/w150-h200/IMG_20260912_105255378_HDR.jpg returned HTTP 404"
+    "Could not mirror image for “The Domesday Book of John's Campaign pledges 2015-2018”: image https://lh5.googleusercontent.com/AfwfVPotyY6uJyUaaEo-purLPj1N676Ekw1XRZVcb_kGnQ7uSxZt224VTQiM2pAc6_3syCdmUrQTiOdttG7E4DnbZ8XcPBFT1knE11ur57Dv1U0hdMQcMoKV7nRAxJYhOHIsHwDG returned HTTP 404"
   ],
   "sources": {
     "goldenDuckLegacy": {
@@ -70,7 +69,9 @@
       "updated": "2026-10-09",
       "sources": [
         "blogger-label",
-        "blogger-recent-author-scan"
+        "blogger-recent-author-scan",
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "revisionHash": "fed4a44393cd5da9d858b7d429db6955d19bee561a158fe4cab58439ea74d5d8",
       "preservationStatus": "full",
