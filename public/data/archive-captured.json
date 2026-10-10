@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T09:54:52.222Z",
+  "generatedAt": "2026-10-10T16:14:54.330Z",
   "archiveState": "last-known-good",
   "postCount": 197,
   "capturedPostCount": 197,
@@ -40,7 +40,7 @@
     {
       "id": "7967723129432485959",
       "title": "Seen from the Water",
-      "originalTitle": "Seen from the Water",
+      "originalTitle": "Seen from the Water by Julia Jones",
       "published": "2026-10-09",
       "year": 2026,
       "month": 10,
@@ -66,16 +66,16 @@
         "Port Townsend Wooden Boat Festival",
         "Stars to Steer By"
       ],
-      "updated": "2026-10-09",
+      "updated": "2026-10-10",
       "sources": [
         "blogger-label",
         "blogger-recent-author-scan",
         "existing-archive",
         "preserved-raw-fallback"
       ],
-      "revisionHash": "1e7cb33b3f3fd9ec1709bcbeda1364bbd51dbfaeb2c6d13cca519cd6bc555d1d",
+      "revisionHash": "c18e422f4fdf16447d636cb56a967def28de871064810eb7f1b10ea0ec02dc0b",
       "preservationStatus": "full",
-      "mirroredAt": "2026-10-09T23:18:08.109Z",
+      "mirroredAt": "2026-10-10T16:15:02.471Z",
       "display": true,
       "duplicateOf": "",
       "duplicateReason": ""
