@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T15:15:23.923Z",
+  "generatedAt": "2026-10-29T21:10:54.173Z",
   "archiveState": "last-known-good",
   "postCount": 197,
   "capturedPostCount": 197,
@@ -32,7 +32,7 @@
     },
     "recentAuthorScan": {
       "ok": true,
-      "count": 23,
+      "count": 22,
       "pages": 3
     }
   },
