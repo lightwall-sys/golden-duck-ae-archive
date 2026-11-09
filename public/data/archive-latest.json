@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T06:41:57.680Z",
+  "generatedAt": "2026-11-09T18:50:58.354Z",
   "archiveState": "last-known-good",
   "postCount": 197,
   "capturedPostCount": 198,
@@ -72,7 +72,9 @@
       "updated": "2026-11-09",
       "sources": [
         "blogger-label",
-        "blogger-recent-author-scan"
+        "blogger-recent-author-scan",
+        "existing-archive",
+        "preserved-raw-fallback"
       ],
       "revisionHash": "3f906cf9ecc711ffe8b25ab809db0d3e38c2f4ca5c6d20daa833f1b2ffb7f531",
       "preservationStatus": "full",
