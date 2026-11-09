@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "state": "healthy-no-change",
-  "checkedAt": "2026-11-08T20:30:11.380Z",
+  "state": "updated",
+  "checkedAt": "2026-11-09T06:41:57.680Z",
   "previousPostCount": 197,
-  "capturedPostCount": 197,
-  "postCount": 196,
+  "capturedPostCount": 198,
+  "postCount": 197,
   "duplicateCount": 1,
-  "fullCopyCount": 196,
+  "fullCopyCount": 197,
   "metadataOnlyCount": 1,
-  "newPostCount": 0,
+  "newPostCount": 1,
   "warnings": [
     "Some posts have no recoverable image. Their archive records were retained.",
     "At least one historical post was already unavailable before this archive was created.",
@@ -23,14 +23,14 @@
     },
     "bloggerLabel": {
       "ok": true,
-      "count": 175,
+      "count": 176,
       "pages": 2,
-      "reportedTotal": 175,
+      "reportedTotal": 176,
       "complete": true
     },
     "recentAuthorScan": {
       "ok": true,
-      "count": 22,
+      "count": 23,
       "pages": 3
     }
   }

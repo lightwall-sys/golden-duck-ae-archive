@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T20:30:11.380Z",
+  "generatedAt": "2026-11-09T06:41:57.680Z",
   "archiveState": "last-known-good",
-  "postCount": 197,
-  "capturedPostCount": 197,
+  "postCount": 198,
+  "capturedPostCount": 198,
   "duplicateCount": 1,
-  "fullCopyCount": 196,
+  "fullCopyCount": 197,
   "metadataOnlyCount": 1,
-  "newestPostDate": "2026-10-09",
+  "newestPostDate": "2026-11-09",
   "goldenDuckArchiveUrl": "https://golden-duck.co.uk/julia-ae-archive",
   "sourceBlogUrl": "https://authorselectric.blogspot.com",
   "downloadUrl": "https://github.com/lightwall-sys/golden-duck-ae-archive/releases/latest/download/julia-jones-authors-electric-archive.zip",
@@ -25,18 +25,62 @@
     },
     "bloggerLabel": {
       "ok": true,
-      "count": 175,
+      "count": 176,
       "pages": 2,
-      "reportedTotal": 175,
+      "reportedTotal": 176,
       "complete": true
     },
     "recentAuthorScan": {
       "ok": true,
-      "count": 22,
+      "count": 23,
       "pages": 3
     }
   },
   "posts": [
+    {
+      "id": "2233866788208167133",
+      "title": "Singing St Nicolas",
+      "originalTitle": "Singing St Nicolas",
+      "published": "2026-11-09",
+      "year": 2026,
+      "month": 11,
+      "day": 9,
+      "url": "https://authorselectric.blogspot.com/2026/11/singing-st-nicolas.html",
+      "originalUrl": "https://authorselectric.blogspot.com/2026/11/singing-st-nicolas.html",
+      "archiveUrl": "https://lightwall-sys.github.io/golden-duck-ae-archive/posts/2026/11/singing-st-nicolas/",
+      "image": "https://lightwall-sys.github.io/golden-duck-ae-archive/media/2233866788208167133/e84c945c92e1aadb8696.jpg",
+      "originalImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXKB6rxSr1I9ZtKf-FsL1fqnICzypqKTz2PdpfwKJvGT5qwcoz_rg1OP_SNxbE7kkOQ7pO-kYFCjLLSMD4m0zMWup9-on_JhWpF2mnxinu2cOMnyGv912M7yj3dPOTkFFK0ezn_HVjZ9pqqBj856jOOG72L3GeEmyJBxzgwUvfuag2-BwPm07Q_H3uqYQ/s320/IMG-20261108-WA0010.jpg",
+      "imageAlt": "Singing St Nicolas",
+      "excerpt": "Andrew Fardell conducting Archie Inns and the Waltham Singers in St Nicolas I was privately glad when the car CD malfunctioned, meaning that we couldn’t listen again to Benjamin Britten’s St Nicolas performed by the choir of King’s College and Stephen Cleobury, as we set out on another lengthy car journey. We’d already listened…",
+      "status": "available",
+      "note": "",
+      "authors": [
+        "julia jones"
+      ],
+      "labels": [
+        "Andrew Fardell",
+        "Archie Inns",
+        "Benjamin Britten",
+        "Bishop Helen-Ann Hartley",
+        "Chelmsford Cathedral",
+        "Covent Garden Orchestra",
+        "Eric Crozier",
+        "Imogen Holst",
+        "Julia Jones",
+        "Waltham Singers"
+      ],
+      "updated": "2026-11-09",
+      "sources": [
+        "blogger-label",
+        "blogger-recent-author-scan"
+      ],
+      "revisionHash": "3f906cf9ecc711ffe8b25ab809db0d3e38c2f4ca5c6d20daa833f1b2ffb7f531",
+      "preservationStatus": "full",
+      "mirroredAt": "2026-11-09T06:42:03.736Z",
+      "display": true,
+      "duplicateOf": "",
+      "duplicateReason": ""
+    },
     {
       "id": "7967723129432485959",
       "title": "Seen from the Water",
@@ -8691,5 +8735,5 @@
       "revisionHash": "5a2796e3f737d2e63d23e8f5c2fb012c6bcdf19cfd084341cb2a6cd6d3c15cc4"
     }
   ],
-  "publicPostCount": 196
+  "publicPostCount": 197
 }
